@@ -37,6 +37,12 @@ namespace Negocio
             get { return leer; }
         }
 
+        public SqlCommand Comando
+        {
+            get { return comando; }
+            set { comando = value; }
+        }
+
         internal void EjectutarAccion()
         {
             comando.Connection = conexion;

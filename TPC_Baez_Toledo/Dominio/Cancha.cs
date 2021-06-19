@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Cancha
+    public class Cancha
     {
         //propiedades
         private int id;
@@ -33,6 +33,7 @@ namespace Dominio
             get { return tipoCancha; }
             set { tipoCancha = value; }
         }
+       
 
         public string Descripcion
         {

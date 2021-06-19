@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class TipoCancha
+    public class TipoCancha
     {
         ///Propediades
         private int id;
@@ -24,5 +24,18 @@ namespace Dominio
             get { return nombre; }
             set { nombre = value; }
         } 
+
+        public TipoCancha (string nombre)
+        {
+          this.Nombre = nombre;
+        }
+
+
+        public override string ToString()
+        {
+            return this.nombre;
+        }
+
+
     }
 }

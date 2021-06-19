@@ -1,0 +1,6 @@
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\Debug\Dominio.dll
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\Debug\Dominio.pdb
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.dll
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.pdb
