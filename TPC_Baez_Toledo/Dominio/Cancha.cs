@@ -10,6 +10,7 @@ namespace Dominio
     {
         //propiedades
         private int id;
+        //string nombre; agregar al abml        
         private decimal precio;
         private TipoCancha tipoCancha;
         private string descripcion;
@@ -33,7 +34,7 @@ namespace Dominio
             get { return tipoCancha; }
             set { tipoCancha = value; }
         }
-       
+          
 
         public string Descripcion
         {
