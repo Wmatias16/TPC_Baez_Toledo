@@ -13,8 +13,7 @@ namespace Negocio
         AccesoDatos datos;
         
         public void Agregar(Cancha newCancha)
-        {
-            
+        {        
  
             try
             {
@@ -44,13 +43,10 @@ namespace Negocio
 
         public List<Cancha> Listar()
         {
-
             List<Cancha> Listcancha = new List<Cancha>();
             datos = new AccesoDatos();
-
             try
-            {
-         
+            {         
                 datos.SetearConsulta("Select C.Id,C.Precio,C.Descripcion,C.UrlImagen,T.Id,T.Nombre From Canchas AS C, TipoCanchas AS T WHERE T.Id = C.IdTipoCancha");
                 datos.EjecutarLectura();
 

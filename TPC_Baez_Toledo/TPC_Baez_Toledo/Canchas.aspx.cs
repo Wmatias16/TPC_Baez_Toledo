@@ -17,7 +17,6 @@ namespace TPC_Baez_Toledo
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             try
             {
                 canchas = canchaNegocio.Listar();
@@ -29,9 +28,6 @@ namespace TPC_Baez_Toledo
                 Session.Add("Error", err.ToString());
                 ///Redireccionar a pagina error
             }
-
-
-
         }
     }
 }

@@ -1,22 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Canchas.aspx.cs" Inherits="TPC_Baez_Toledo.Canchas" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-
-
     <div class="container" style="margin-top: 25px;">
         <div class="row">
             <div class="col-8">
-
-               
-
                 <div class="input-group flex-nowrap">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="addon-wrapping">Filtrar</span>
                     </div>
                      <asp:TextBox ID="TextBoxFiltrar" runat="server"  placeholder="buscar" ></asp:TextBox>
                 </div>
-
-
             </div>
         </div>
         <div class="row">
@@ -38,9 +30,5 @@
             </div>
             <%} %>
         </div>
-
     </div>
-
-
-
 </asp:Content>
