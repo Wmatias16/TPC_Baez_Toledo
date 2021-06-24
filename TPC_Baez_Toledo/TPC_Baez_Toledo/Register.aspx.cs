@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace TPC_Baez_Toledo
 {
-    public partial class Register : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+	public partial class Register1 : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
 
-        }
-    }
+		}
+	}
 }

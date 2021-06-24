@@ -7,3 +7,12 @@ C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_B
 C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\obj\Debug\Negocio.dll
 C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Negocio.dll
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Dominio.dll
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Dominio.pdb
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\obj\Debug\Negocio.dll
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\obj\Debug\Negocio.pdb
