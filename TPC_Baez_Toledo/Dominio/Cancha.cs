@@ -10,7 +10,7 @@ namespace Dominio
     {
         //propiedades
         private int id;
-        //string nombre; agregar al abml        
+        private string nombre;    
         private decimal precio;
         private TipoCancha tipoCancha;
         private string descripcion;
@@ -47,6 +47,13 @@ namespace Dominio
             get { return urlImagen; }
             set { urlImagen = value; }
         }
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+
 
     }
 }
