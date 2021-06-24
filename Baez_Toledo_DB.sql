@@ -1,6 +1,4 @@
-USE MASTER;
-DROP DATABASE Predio;
-GO
+
 Create database Predio;
 GO
 USE Predio;
@@ -59,14 +57,13 @@ CREATE TABLE Alquileres(
 GO
 
 
-USE Predio
-GO
-
-INSERT INTO TipoCanchas (Nombre) VALUES ('FULBO')
 
 
 INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
-VALUES('BOQUITA',1,'La bombonera ubicada en la rivera',20000,'https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.tycsports.com%2Ffiles%2F2021%2F05%2F16%2F282655%2Fbombonera_416x234.jpg&imgrefurl=https%3A%2F%2Fwww.tycsports.com%2Fboca-juniors%2Fboca-publico-un-video-para-homenajear-a-la-bombonera-maradona-messi-y-una-chicana-a-river-id345898.html&tbnid=n9lmJHEmyNdBDM&vet=12ahUKEwizk8GCrK_xAhXoN7kGHYTVBRgQMygIegUIARDhAQ..i&docid=MtDJVEctWLrlEM&w=416&h=234&q=bombonera&ved=2ahUKEwizk8GCrK_xAhXoN7kGHYTVBRgQMygIegUIARDhAQ')
+VALUES('BOQUITA',1,'La bombonera ubicada en la rivera',20000,'https://www.canchasupergol.com/uploads/1/3/3/7/133786110/canchas-sinteticas-americas-68_orig.png')
+GO
+INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
+VALUES('Cancha de 11',1,'La bombonera ubicada en la rivera',5000,'https://www.canchasupergol.com/uploads/1/3/3/7/133786110/canchas-sinteticas-americas-68_orig.png')
 
 
-SELECT * FROM Canchas
+

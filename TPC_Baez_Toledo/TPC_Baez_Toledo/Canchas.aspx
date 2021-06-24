@@ -24,7 +24,7 @@
                         <h5 class="card-title text-center"><% = item.Nombre %></h5>
                         <p class="card-text text-center" style="font-size: 24px"><% = item.Precio %>$</p>
 
-                        <a href="Detalle.aspx?id=<% = item.Id %>" class="btn btn-primary btn-lg btn-block">Ver detalle</a>
+                        <a href="Detalle.aspx?id=<% = item.Id %>" class="btn btn-primary btn-lg btn-block">Alquilar</a>
                     </div>
                 </div>
             </div>

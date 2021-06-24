@@ -18,9 +18,10 @@ namespace Negocio
             try
             {
                 datos = new AccesoDatos();
-                string query = "INSERT INTO Canchas VALUES(@Precio,@IdTipoCancha,@Descripcion,@UrlImagen)";
+                string query = "INSERT INTO Canchas VALUES(@Nombre,@Precio,@IdTipoCancha,@Descripcion,@UrlImagen)";
                 datos.SetearConsulta(query);
 
+                datos.Comando.Parameters.AddWithValue("@Nombre", newCancha.Nombre);
                 datos.Comando.Parameters.AddWithValue("@Precio", newCancha.Precio);
                 datos.Comando.Parameters.AddWithValue("@IdTipoCancha", newCancha.TipoCancha);
                 datos.Comando.Parameters.AddWithValue("@Descripcion", newCancha.Descripcion);
@@ -47,14 +48,16 @@ namespace Negocio
             datos = new AccesoDatos();
             try
             {         
-                datos.SetearConsulta("Select C.Id,C.Precio,C.Descripcion,C.UrlImagen,T.Id,T.Nombre From Canchas AS C, TipoCanchas AS T WHERE T.Id = C.IdTipoCancha");
+                datos.SetearConsulta("Select C.Id,C.Nombre,C.Precio,C.Descripcion,C.UrlImagen,T.Id,T.Nombre From Canchas AS C, TipoCanchas AS T WHERE T.Id = C.IdTipoCancha");
                 datos.EjecutarLectura();
 
                 while (datos.Leer.Read())
                 {
                     Cancha newCancha = new Cancha();
 
+
                     newCancha.Id = (Int16)datos.Leer["Id"];
+                    newCancha.Nombre = (string)datos.Leer["Nombre"];
                     newCancha.Precio = (decimal)datos.Leer["Precio"];
                     newCancha.Descripcion = (string)datos.Leer["Descripcion"];
                     newCancha.UrlImagen = (string)datos.Leer["UrlImagen"];
