@@ -10,8 +10,8 @@ namespace Dominio
     {
         //Propiedades
         private int id;
-        private int legajoUsuario;
-        private int idCancha;
+        private Usuario usuario;
+        private Cancha cancha;
         private decimal costo;
         private int horas;
         private string fecha;
@@ -23,16 +23,16 @@ namespace Dominio
             set { id = value; }
         }
 
-        public int LegajoUsuario
+        public Usuario Usuario
         {
-            get { return legajoUsuario; }
-            set { legajoUsuario = value; }
+            get { return Usuario; }
+            set { Usuario = value; }
         }
 
-        public int IdCancha
+        public Cancha Cancha
         {
-            get { return idCancha; }
-            set { idCancha = value; }
+            get { return Cancha; }
+            set { Cancha = value; }
         }
 
         public decimal Costo
