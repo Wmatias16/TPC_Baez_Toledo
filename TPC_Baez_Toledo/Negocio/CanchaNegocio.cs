@@ -26,9 +26,7 @@ namespace Negocio
                 datos.Comando.Parameters.AddWithValue("@IdTipoCancha", newCancha.TipoCancha);
                 datos.Comando.Parameters.AddWithValue("@Descripcion", newCancha.Descripcion);
                 datos.Comando.Parameters.AddWithValue("@UrlImagen", newCancha.UrlImagen);
-                datos.EjectutarAccion();
-             
-
+                datos.EjectutarAccion(); 
             }
             catch(Exception err)
             {

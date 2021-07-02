@@ -9,7 +9,7 @@ namespace Dominio
     public class Usuario
     {
         private int legajo;
-        private int rol; 
+        private Rol rol; 
         private string nombre;
         private string apellidos;
         private string email;
@@ -20,10 +20,11 @@ namespace Dominio
             get { return legajo; }
             set { legajo = value; }
         }
-        public int Rol
+
+        public Rol Rol
         {
-            get { return rol; }
-            set { rol = value; }
+            get { return this.rol; }
+            set { this.rol = value; }
         }
 
         public string Nombre

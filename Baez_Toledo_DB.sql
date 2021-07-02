@@ -1,4 +1,7 @@
-
+USE master
+GO
+drop database Predio
+GO
 Create database Predio;
 GO
 USE Predio;
@@ -17,6 +20,7 @@ CREATE TABLE Usuarios(
 	Apellido VARCHAR(50) NOT NULL,
 	Email VARCHAR(100) NOT NULL UNIQUE,
 	Telefono VARCHAR(40) NOT NULL,
+	Estado BIT NOT NULL DEFAULT 1
 );
 GO
 
@@ -56,14 +60,15 @@ CREATE TABLE Alquileres(
 );
 GO
 
-
-
-
+INSERT INTO Roles(Nombre)
+VALUES('Administrador')
+GO
+INSERT INTO TipoCanchas(Nombre)
+VALUES('FUTBOL')
+GO
 INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
 VALUES('BOQUITA',1,'La bombonera ubicada en la rivera',20000,'https://www.canchasupergol.com/uploads/1/3/3/7/133786110/canchas-sinteticas-americas-68_orig.png')
 GO
 INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
 VALUES('Cancha de 11',1,'La bombonera ubicada en la rivera',5000,'https://www.canchasupergol.com/uploads/1/3/3/7/133786110/canchas-sinteticas-americas-68_orig.png')
-
-
 
