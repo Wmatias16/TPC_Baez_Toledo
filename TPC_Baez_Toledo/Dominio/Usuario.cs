@@ -13,6 +13,7 @@ namespace Dominio
         private string nombre;
         private string apellidos;
         private string email;
+        private string contraseña;
         private string telefono;
 
         public int Legajo
@@ -42,6 +43,12 @@ namespace Dominio
         {
             get { return email; }
             set { email = value; }
+        }
+
+        public string Contraseña
+        {
+            get { return contraseña; }
+            set { contraseña = value; }
         }
         public string Telefono
         {

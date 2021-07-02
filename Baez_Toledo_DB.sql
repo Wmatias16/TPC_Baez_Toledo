@@ -19,6 +19,7 @@ CREATE TABLE Usuarios(
 	Nombre VARCHAR(50) NOT NULL,
 	Apellido VARCHAR(50) NOT NULL,
 	Email VARCHAR(100) NOT NULL UNIQUE,
+	Contraseña VARCHAR(100) NOT NULL,
 	Telefono VARCHAR(40) NOT NULL,
 	Estado BIT NOT NULL DEFAULT 1
 );
@@ -48,8 +49,7 @@ CREATE TABLE Suscripciones(
 );
 GO
 
-CREATE TABLE Alquileres(
-	
+CREATE TABLE Alquileres(	
 	Id INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 	LegajoUsuario INT FOREIGN KEY REFERENCES Usuarios(Legajo) NOT NULL,
 	IdCancha SMALLINT FOREIGN KEY REFERENCES Canchas(Id) NOT NULL,
@@ -66,6 +66,11 @@ GO
 INSERT INTO TipoCanchas(Nombre)
 VALUES('FUTBOL')
 GO
+INSERT INTO Usuarios(Rol,Nombre,Apellido,Email,Contraseña,Telefono)
+VALUES(1,'Root','admin','root.admin@gmail.com','Admin123','1133337741')
+
+select COUNT(*) from Usuarios where Email = 'root.admin@gmail.com'
+
 INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
 VALUES('BOQUITA',1,'La bombonera ubicada en la rivera',20000,'https://www.canchasupergol.com/uploads/1/3/3/7/133786110/canchas-sinteticas-americas-68_orig.png')
 GO

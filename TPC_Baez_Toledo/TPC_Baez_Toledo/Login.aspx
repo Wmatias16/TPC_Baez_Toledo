@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="TPC_Baez_Toledo.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    
+    <%if (error == true) { %>
+            <h1>EXISTE</h1>        
+        <% } %>
 
     <div class="container" style="margin-top: 150px;">
         <div class="row">
@@ -18,8 +22,7 @@
                     <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                     <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
                 </div>
-
-                <button type="submit" class="btn btn-primary">Iniciar sesion</button>
+                <asp:Button ID="Button1" runat="server" Text="Iniciar sesion" OnClick="Validar" />
             </div>
         </div>
     </div>
