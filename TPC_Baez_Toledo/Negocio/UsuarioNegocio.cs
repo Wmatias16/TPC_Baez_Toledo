@@ -37,7 +37,7 @@ namespace Negocio
                 datos.CerraConexion();
             }
         }
-        public bool Existe(string email)
+        public bool Existe(string email)//buscamos email en la base de datos
         {
             datos = new AccesoDatos();
             try

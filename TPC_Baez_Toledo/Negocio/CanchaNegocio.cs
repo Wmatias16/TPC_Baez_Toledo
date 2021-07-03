@@ -23,7 +23,7 @@ namespace Negocio
 
                 datos.Comando.Parameters.AddWithValue("@Nombre", newCancha.Nombre);
                 datos.Comando.Parameters.AddWithValue("@Precio", newCancha.Precio);
-                datos.Comando.Parameters.AddWithValue("@IdTipoCancha", newCancha.TipoCancha);
+                datos.Comando.Parameters.AddWithValue("@IdTipoCancha", newCancha.TipoCancha.Id);
                 datos.Comando.Parameters.AddWithValue("@Descripcion", newCancha.Descripcion);
                 datos.Comando.Parameters.AddWithValue("@UrlImagen", newCancha.UrlImagen);
                 datos.EjectutarAccion(); 
@@ -78,5 +78,56 @@ namespace Negocio
             }
 
         }
+
+        public void Editar(Cancha CanchaEdit)
+        {       
+            try
+            {   
+                AccesoDatos datos = new AccesoDatos();
+                datos.SetearConsulta(query);
+
+                datos.Comando.Parameters.AddWithValue("@Nombre",CanchaEdit.Nombre);
+                datos.Comando.Parameters.AddWithValue("@Precio", CanchaEdit.Precio);
+                datos.Comando.Parameters.AddWithValue("@IdTipoCancha", CanchaEdit.TipoCancha.Id);
+                datos.Comando.Parameters.AddWithValue("@Descripcion", CanchaEdit.Descripcion);
+                datos.Comando.Parameters.AddWithValue("@UrlImagen", CanchaEdit.UrlImagen);
+
+                datos.EjectutarAccion();
+
+
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                datos.CerraConexion();
+            }
+
+        }
+
+        public void Eliminar(int IdCancha)
+        {
+            try
+            {
+                datos = new AccesoDatos();
+                string query = "UPDATE Canchas SET Estado = 0 WHERE Id=" + IdCancha;
+                datos.SetearConsulta(query);
+                datos.EjectutarAccion();
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                datos.CerraConexion();
+            }
+        }
+
+
+
+
     }
 }

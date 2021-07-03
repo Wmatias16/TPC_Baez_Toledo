@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Alquiler
+   public class Alquiler
     {
         //Propiedades
         private int id;
@@ -25,14 +25,14 @@ namespace Dominio
 
         public Usuario Usuario
         {
-            get { return Usuario; }
-            set { Usuario = value; }
+            get { return usuario; }
+            set { usuario = value; }
         }
 
         public Cancha Cancha
         {
-            get { return Cancha; }
-            set { Cancha = value; }
+            get { return cancha; }
+            set { cancha = value; }
         }
 
         public decimal Costo
