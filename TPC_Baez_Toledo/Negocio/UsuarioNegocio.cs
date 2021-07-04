@@ -106,7 +106,8 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetearConsulta("SELECT U.Legajo,R.Nombre AS Rol, U.Nombre,U.Apellido,U.Email,U.Telefono FROM Usuarios AS U, Roles AS R WHERE  R.ID = U.ROL AND U.Estado = 0");
+                string Query = "SELECT U.Legajo,R.Nombre AS Rol, U.Nombre,U.Apellido,U.Email,U.Telefono FROM Usuarios AS U, Roles AS R WHERE  R.ID = U.ROL AND U.Estado = 0";
+                datos.SetearConsulta(Query);
                 datos.EjecutarLectura();
 
                 while (datos.Leer.Read())
@@ -180,6 +181,6 @@ namespace Negocio
             }
         }
 
-
+        
     }
 }

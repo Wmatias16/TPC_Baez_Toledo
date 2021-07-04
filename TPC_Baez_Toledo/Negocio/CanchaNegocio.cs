@@ -84,6 +84,7 @@ namespace Negocio
             try
             {   
                 AccesoDatos datos = new AccesoDatos();
+                string query = "UPDATE Canchas SET Nombre=@Nombre,Precio=@Precio,IdTipoCancha=@IdTipoCancha,Descripcion=@Descripcion,UrlImagen=@UrlImagen WHERE Id = " + CanchaEdit.Id;
                 datos.SetearConsulta(query);
 
                 datos.Comando.Parameters.AddWithValue("@Nombre",CanchaEdit.Nombre);
