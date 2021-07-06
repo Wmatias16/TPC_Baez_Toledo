@@ -20,6 +20,10 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="inputAddress">Confirmar Contraseña</label>
+                    <asp:TextBox ID="TxtConfirmarContra" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="form-group">
                     <label for="inputAddress">Nombre</label>
                     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
@@ -31,8 +35,8 @@
                     <label for="inputAddress2">Telefono</label>
                     <asp:TextBox ID="txtTelefono" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-
-                <button type="submit" class="btn btn-primary">Registrarme</button>
+                <asp:Button ID="Registrar" OnClick="btnRegistrar_Click" class="btn btn-primary" runat="server" Text="Registrarme" />
+                
             </div>
         </div>
     </div>

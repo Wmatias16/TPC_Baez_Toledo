@@ -38,6 +38,7 @@ CREATE TABLE Canchas(
 	IdTipoCancha SMALLINT FOREIGN KEY REFERENCES TipoCanchas(Id),
 	Descripcion VARCHAR(200) NOT NULL,
 	UrlImagen VARCHAR(1000) NOT NULL,
+	Estado bit not null DEFAULT 1
 );
 GO
 
@@ -56,7 +57,7 @@ CREATE TABLE Alquileres(
 	Precio Decimal NOT NULL CHECK( Precio > 0 ),
 	Horas SMALLINT NOT NULL CHECK (Horas > 0 ),
 	Fecha DATE NOT NULL,
-	Estado SMALLINT NOT NULL,
+	Estado SMALLINT NOT NULL ,
 );
 GO
 
@@ -77,3 +78,7 @@ GO
 INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
 VALUES('Cancha de 11',1,'La bombonera ubicada en la rivera',5000,'https://www.canchasupergol.com/uploads/1/3/3/7/133786110/canchas-sinteticas-americas-68_orig.png')
 
+
+
+
+SELECT * FROM Canchas 
