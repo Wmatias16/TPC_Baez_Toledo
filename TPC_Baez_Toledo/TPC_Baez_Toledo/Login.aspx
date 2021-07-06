@@ -2,8 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
-    <%if (error == true) { %>
-            <h1>EXISTE</h1>        
+    <%if (error == false) { %>
+            <div class="alert alert-primary" role="alert">
+                ERROR EN LOGUEAR
+            </div>        
         <% } %>
 
     <div class="container" style="margin-top: 150px;">

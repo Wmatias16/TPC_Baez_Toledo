@@ -27,10 +27,39 @@
                         <p class="card-text text-center" style="font-size: 24px"><% = item.Precio %>$</p>
 
                         <a href="Detalle.aspx?id=<% = item.Id %>" class="btn btn-primary btn-lg btn-block">Alquilar</a>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                            ALQUILAR
+                        </button>
                     </div>
                 </div>
             </div>
             <%} %>
         </div>
     </div>
+
+
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Alquiler</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
+            <button type="button" class="btn btn-success">Alquilar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 </asp:Content>

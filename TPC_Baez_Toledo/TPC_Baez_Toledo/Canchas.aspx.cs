@@ -27,6 +27,12 @@ namespace TPC_Baez_Toledo
             {
                 Session.Add("Error", err.ToString());
                 ///Redireccionar a pagina error
+                ///
+
+               
+
+
+
             }
         }
     }

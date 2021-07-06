@@ -84,7 +84,7 @@ namespace Negocio
             try
             {   
                 AccesoDatos datos = new AccesoDatos();
-                datos.SetearConsulta(query);
+                datos.SetearConsulta("");
 
                 datos.Comando.Parameters.AddWithValue("@Nombre",CanchaEdit.Nombre);
                 datos.Comando.Parameters.AddWithValue("@Precio", CanchaEdit.Precio);
