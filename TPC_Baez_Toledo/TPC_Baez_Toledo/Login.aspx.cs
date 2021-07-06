@@ -29,7 +29,7 @@ namespace TPC_Baez_Toledo
                
                 Usuario user = negocio.Validar(txtEmail.Text, txtPassword.Text);
 
-                if (user.Legajo == null)
+                if (user != null)
                 {
                     Session["Usuario"] = user;
                     Response.Redirect("Canchas.aspx");
@@ -37,7 +37,6 @@ namespace TPC_Baez_Toledo
                 else
                 {
                     Session["ERROR"] = "Contraseña incorrecta";
-                    error = true;
                 }
               
             }
