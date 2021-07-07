@@ -9,28 +9,36 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="addon-wrapping">Filtrar</span>
                     </div>
-                     <asp:TextBox ID="TextBoxFiltrar" runat="server"  placeholder="buscar" ></asp:TextBox>
+                    <asp:TextBox ID="TextBoxFiltrar" runat="server" placeholder="buscar"></asp:TextBox>
                 </div>
             </div>
         </div>
         <div class="row">
             <%foreach (Dominio.Cancha item in canchas)
                 {%>
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <a href="Detalle.aspx?id=<% = item.Id %>">
-                        <img src="<% = item.UrlImagen %>" class="card-img-top" style="width: 100%" alt="...">
-                    </a>
 
-                    <div class="card-body">
-                        <h5 class="card-title text-center"><% = item.Nombre %></h5>
-                        <p class="card-text text-center" style="font-size: 24px"><% = item.Precio %>$</p>
-
-                        <a href="Detalle.aspx?id=<% = item.Id %>" class="btn btn-primary btn-lg btn-block">Alquilar</a>
+            <div class="card mb-3" style="max-width: 1500px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="<% = item.UrlImagen %>" alt="..." style="width: 100%">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"><% = item.Nombre %></h5>
+                            <p class="card-text"><% = item.Descripcion %></p>
+                            <p class="card-text"><small class="text-muted">$<%= item.Precio %> </small></p>
+                             
+                            <a href="Alquilar.aspx?id=<% = item.Id %>" class="btn btn-primary btn-lg btn-block">Alquilar</a>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <%} %>
         </div>
     </div>
+
+
+
+
 </asp:Content>

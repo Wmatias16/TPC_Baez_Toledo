@@ -20,7 +20,7 @@ namespace TPC_Baez_Toledo
             try
             {
                 canchas = canchaNegocio.Listar();
-                Session.Add("ListarCanchas", canchas);
+               //Session.Add("ListarCanchas", canchas);
 
             }
             catch(Exception err)
@@ -29,5 +29,12 @@ namespace TPC_Baez_Toledo
                 ///Redireccionar a pagina error
             }
         }
+
+        protected void ObtenerHorario(Object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
