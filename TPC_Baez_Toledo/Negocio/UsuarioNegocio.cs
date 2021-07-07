@@ -106,7 +106,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string Query = "SELECT U.Legajo,R.Nombre AS Rol, U.Nombre,U.Apellido,U.Email,U.Telefono FROM Usuarios AS U, Roles AS R WHERE  R.ID = U.ROL AND U.Estado = 0";
+                string Query = "SELECT U.Legajo,R.Nombre AS Rol, U.Nombre,U.Apellido,U.Email,U.Telefono FROM Usuarios AS U, Roles AS R WHERE  R.ID = U.ROL AND U.Estado = 1";
                 datos.SetearConsulta(Query);
                 datos.EjecutarLectura();
 

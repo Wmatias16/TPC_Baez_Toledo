@@ -13,17 +13,14 @@ namespace TPC_Baez_Toledo
 
     public partial class WebForm1 : System.Web.UI.Page
     {
-         int ultimoDia = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
-         int DiaHoy = (int )DateTime.Today.Day;
         public List<int> dias = new List<int>();
-
-
-        List<Cancha>canchas = new List<Cancha>();
         public Cancha cancha = new Cancha();
-        CanchaNegocio canchaNeg = new CanchaNegocio();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            List<Cancha> canchas = new List<Cancha>();
+            CanchaNegocio canchaNeg = new CanchaNegocio();
+
             int id = int.Parse(Request.QueryString["Id"]);
 
             canchas = canchaNeg.Listar();
@@ -36,16 +33,14 @@ namespace TPC_Baez_Toledo
                // Response.Redirect("Error.aspx");
             }
 
+            int ultimoDia = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
+            int DiaHoy = DateTime.Today.Day;
 
-           
 
-            for(int i = DiaHoy; i <= ultimoDia; i++)
+            for (int i = DiaHoy; i <= ultimoDia; i++)
             {
                 dias.Add(i);
             }
-
-
-
         }
     }
 }

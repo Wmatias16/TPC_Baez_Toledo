@@ -11,8 +11,17 @@ namespace TPC_Baez_Toledo
 {
 
 
-    public partial class Register1
+    public partial class Register
     {
+
+        /// <summary>
+        /// Control form1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// Control txtEmail.
@@ -33,7 +42,7 @@ namespace TPC_Baez_Toledo
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
-        /// Control TxtConfirmarContra .
+        /// Control TxtConfirmarContra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

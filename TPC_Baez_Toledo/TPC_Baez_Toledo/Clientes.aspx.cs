@@ -6,22 +6,19 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using Dominio;
+using Negocio;
+
 namespace TPC_Baez_Toledo
 {
-    public partial class SiteMaster : MasterPage
+    public partial class Clientes : System.Web.UI.Page
     {
-
-        public Usuario user;
+        public List<Usuario> clientes = new List<Usuario>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Usuario"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
+            UsuarioNegocio userNegocio = new UsuarioNegocio();
 
-            user = (Usuario)Session["Usuario"];
+            clientes = userNegocio.Listar();
         }
-
     }
 }

@@ -11,21 +11,19 @@
 
             <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle " style="margin-top:10px" type="button" id="dropdownMenuButtonXdia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dia
+                            Dias
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                           
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                           
                             <% foreach(int Dia in dias)
                                 {%>                          
                                 <a class="dropdown-item" href="#"><%=Dia %></a>
-                            <%} %>
-                            
+                            <%} %>                            
                         </div>
                     </div>
 
              <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle " style="margin-top:10px" type="button" id="dropdownMenuButtonXdia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            hora
+                            Horarios disponibles
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#">13:00</a>
@@ -34,6 +32,5 @@
 
         </div>
     </div>
-   
 
 </asp:Content>

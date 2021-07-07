@@ -9,20 +9,20 @@ using Negocio;
 
 namespace TPC_Baez_Toledo
 {
-	public partial class Register1 : System.Web.UI.Page
+	public partial class Register : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+			
 		}
 
 		protected void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            try
-            {
+		{
+			try
+			{
 				UsuarioNegocio UsuarioNeg = new UsuarioNegocio();
 				Usuario NewUsuario = new Usuario();
-
+				
 				NewUsuario.Email = txtEmail.Text;
 				NewUsuario.Contraseña = txtPassword.Text;
 				NewUsuario.Nombre = txtNombre.Text;
@@ -33,22 +33,22 @@ namespace TPC_Baez_Toledo
 				if (txtPassword.Text == TxtConfirmarContra.Text && !UsuarioNeg.Existe(NewUsuario.Email))//Confirmamos contraseña y validamos email
 				{
 					UsuarioNeg.Agregar(NewUsuario);//Lo agregamos a la base de datos
-                }
+				}
 				else
-				{ 
+				{
 					//No se puede agregar por validaciones		
 				}
 
 			}
 			catch (Exception err)
-            {
+			{
 				throw err;
-            }
-            finally
-            {
+			}
+			finally
+			{
 
-            }
-			
+			}
+
 		}
 
 	}
