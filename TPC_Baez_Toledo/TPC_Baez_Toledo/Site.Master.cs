@@ -23,5 +23,13 @@ namespace TPC_Baez_Toledo
             user = (Usuario)Session["Usuario"];
         }
 
+        protected void CerrarSesion(object sender, EventArgs e)
+        {
+            Session["Usuario"] = null;
+
+            Response.Redirect("Login.aspx");
+        }
+
+
     }
 }

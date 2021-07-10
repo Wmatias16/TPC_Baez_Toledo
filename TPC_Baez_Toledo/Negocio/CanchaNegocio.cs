@@ -18,7 +18,8 @@ namespace Negocio
             try
             {
                 datos = new AccesoDatos();
-                string query = "INSERT INTO Canchas VALUES(@Nombre,@Precio,@IdTipoCancha,@Descripcion,@UrlImagen)";
+                string values = "VALUES(@Nombre,@Precio,@IdTipoCancha,@Descripcion,@UrlImagen)";
+                string query = "INSERT INTO Canchas(Nombre,Precio,IdTipoCancha,Descripcion,UrlImagen)" + values;
                 datos.SetearConsulta(query);
 
                 datos.Comando.Parameters.AddWithValue("@Nombre", newCancha.Nombre);

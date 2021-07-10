@@ -16,12 +16,13 @@ namespace Negocio
             try
             {
                 datos = new AccesoDatos();
-                string query = "INSERT INTO Usuarios VALUES(@Rol,@Nombre,@Apellidos,@Email,@Contraseña,@Telefono)";
+                string values = "VALUES(@Rol,@Nombre,@Apellido,@Email,@Contraseña,@Telefono)";
+                string query = "INSERT INTO Usuarios(Rol,Nombre,Apellido,Email,Contraseña,Telefono)" + values;
                 datos.SetearConsulta(query);
 
                 datos.Comando.Parameters.AddWithValue("@Rol", nuevoUsuario.Rol.Id);
                 datos.Comando.Parameters.AddWithValue("@Nombre", nuevoUsuario.Nombre);
-                datos.Comando.Parameters.AddWithValue("@Apellidos", nuevoUsuario.Apellidos);
+                datos.Comando.Parameters.AddWithValue("@Apellido", nuevoUsuario.Apellidos);
                 datos.Comando.Parameters.AddWithValue("@Email", nuevoUsuario.Email);
                 datos.Comando.Parameters.AddWithValue("@Contraseña", nuevoUsuario.Contraseña);
                 datos.Comando.Parameters.AddWithValue("@Telefono", nuevoUsuario.Telefono);

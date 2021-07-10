@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Confirmar Contraseña</label>
-                    <asp:TextBox ID="TxtConfirmarContra" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TxtConfirmarContra" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Nombre</label>

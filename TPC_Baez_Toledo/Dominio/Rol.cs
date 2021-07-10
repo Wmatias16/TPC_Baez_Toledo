@@ -23,6 +23,11 @@ namespace Dominio
             set { nombre = value; }
         }
 
+        public Rol(int id)
+        {
+            this.id = id;
+        }
+
         public Rol(string nombre)
         {
             this.nombre = nombre;

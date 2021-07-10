@@ -9,7 +9,7 @@
         </button>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Cerrar sesion</a>
+                <asp:Button ID="BtnCerrarSesion" CssClass="nav-link" runat="server" Text="Cerrar sesion" />
             </li>
         </ul>
     </nav>

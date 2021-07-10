@@ -20,23 +20,32 @@ namespace TPC_Baez_Toledo
 		{
 			try
 			{
-				UsuarioNegocio UsuarioNeg = new UsuarioNegocio();
-				Usuario NewUsuario = new Usuario();
-				
-				NewUsuario.Email = txtEmail.Text;
-				NewUsuario.Contraseña = txtPassword.Text;
-				NewUsuario.Nombre = txtNombre.Text;
-				NewUsuario.Apellidos = txtApellido.Text;
-				NewUsuario.Telefono = txtTelefono.Text;
-				NewUsuario.Rol.Id = 1; // asignamos id 1 cliente
+				UsuarioNegocio UsuarioNeg = new UsuarioNegocio();		
 
-				if (txtPassword.Text == TxtConfirmarContra.Text && !UsuarioNeg.Existe(NewUsuario.Email))//Confirmamos contraseña y validamos email
-				{
-					UsuarioNeg.Agregar(NewUsuario);//Lo agregamos a la base de datos
-				}
+                if (!UsuarioNeg.Existe(txtEmail.Text))
+                {
+					if (txtPassword.Text == TxtConfirmarContra.Text)
+					{
+						Usuario NewUsuario = new Usuario();
+
+						NewUsuario.Email = txtEmail.Text;
+						NewUsuario.Contraseña = txtPassword.Text;
+						NewUsuario.Nombre = txtNombre.Text;
+						NewUsuario.Apellidos = txtApellido.Text;
+						NewUsuario.Telefono = txtTelefono.Text;
+						NewUsuario.Rol = new Rol(2);
+
+						UsuarioNeg.Agregar(NewUsuario);
+						Response.Redirect("Login.aspx");
+                    }
+                    else
+                    {
+						Session.Add("Error", "Las contraseñas no son iguales");
+					}
+				}				
 				else
 				{
-					//No se puede agregar por validaciones		
+					Session.Add("Error", "Este mail ya existe");	
 				}
 
 			}

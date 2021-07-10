@@ -22,8 +22,9 @@
             </button>
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="#">Cerrar sesion</a>
+                    <asp:Button ID="btnCerrarSesion" CssClass="btn btn-danger" OnClick="CerrarSesion" runat="server" Text="Cerrar session" />
                 </li>
+               
             </ul>
         </nav>
 
@@ -38,6 +39,7 @@
                                     Inicio <span class="sr-only"></span>
                                 </a>
                             </li>
+
 
                            
                             <%if (user.Rol.Nombre == "Administrador")
@@ -54,20 +56,14 @@
                                     Clientes
                                 </a>
                             </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="Canchas.aspx">
-                                    <span data-feather="file"></span>
-                                    Agregar canchas
-                                </a>
-                            </li>
+                              </li>
                              <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span data-feather="bar-chart-2"></span>
                                     Reportes
                                 </a>
                             </li>
-
+                           
                             <%}
                                 else
                                 {%>
@@ -84,13 +80,7 @@
                                     Mis alquileres
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span data-feather="users"></span>
-                                    Configuarion de cuenta
-                                </a>
-                            </li>
-                           
+                                                       
                             <%} %>
                         </ul>
                       </div>

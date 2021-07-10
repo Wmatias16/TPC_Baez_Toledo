@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="TPC_Baez_Toledo.Clientes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+   
 
     <div class="container" style="margin-top: 25px;">
         <caption>Lista de clientes</caption>
@@ -13,7 +13,6 @@
                 <th scope="col">Apellido</th>
                 <th scope="col">Email</th>
                 <th scope="col">Telefono</th>
-
             </tr>
         </thead>
           
