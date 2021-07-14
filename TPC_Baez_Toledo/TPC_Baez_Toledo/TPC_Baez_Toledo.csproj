@@ -125,6 +125,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Alquilar.aspx" />
+    <Content Include="GestionCanchas.aspx" />
+    <Content Include="AgregarCancha.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
@@ -247,6 +249,20 @@
     </Compile>
     <Compile Include="Alquilar.aspx.designer.cs">
       <DependentUpon>Alquilar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionCanchas.aspx.cs">
+      <DependentUpon>GestionCanchas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionCanchas.aspx.designer.cs">
+      <DependentUpon>GestionCanchas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarCancha.aspx.cs">
+      <DependentUpon>AgregarCancha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarCancha.aspx.designer.cs">
+      <DependentUpon>AgregarCancha.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
