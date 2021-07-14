@@ -2,34 +2,37 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="card mb-3">
-        <img src="<%=cancha.UrlImagen %> " style="width:100%" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title"><%=cancha.Nombre %></h5>
-            <p class="card-text"><%=cancha.Descripcion %></p>
-            <p class="card-text"><small class="text-muted"><%= cancha.Precio %></small></p>
-
-            <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle " style="margin-top:10px" type="button" id="dropdownMenuButtonXdia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dias
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                           
-                            <% foreach(int Dia in dias)
-                                {%>                          
-                                <a class="dropdown-item" href="#"><%=Dia %></a>
-                            <%} %>                            
+    <div class="card mb-3" style="width: 100%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="<%=cancha.UrlImagen %>" alt="..." style="width: 100%; height: 100%; object-fit: cover">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%=cancha.Nombre %></h5>
+                    <h5 class="card-title"><%=cancha.Precio %></h5>
+                    <p class="card-text"><%=cancha.Descripcion %></p>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Dia disponibles</label>
                         </div>
+                        <asp:DropDownList CssClass="custom-select" runat="server" ID="listDias"
+                            AutoPostBack="true">                           
+                            
+                        </asp:DropDownList>
                     </div>
-
-             <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle " style="margin-top:10px" type="button" id="dropdownMenuButtonXdia" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Horarios disponibles
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">13:00</a>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Horarios disponibles</label>
                         </div>
+                        <asp:DropDownList CssClass="custom-select" runat="server" ID="listHorarios"
+                            AutoPostBack="false">                           
+                            
+                        </asp:DropDownList>
                     </div>
-
+                         <asp:Button ID="btnAlquilar" CssClass="btn btn-success btn-lg btn-block" runat="server" OnClick="btnAlquilar_Click" Text="Alquilar cancha"/>
+                </div>
+            </div>
         </div>
     </div>
 

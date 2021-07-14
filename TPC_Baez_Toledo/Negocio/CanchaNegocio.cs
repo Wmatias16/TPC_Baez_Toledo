@@ -59,7 +59,7 @@ namespace Negocio
 
                     newCancha.Id = (Int16)datos.Leer["Id"];
                     newCancha.Nombre = (string)datos.Leer["Nombre"];
-                        newCancha.Precio = (decimal)datos.Leer["Precio"];
+                    newCancha.Precio = (decimal)datos.Leer["Precio"];
                     newCancha.Descripcion = (string)datos.Leer["Descripcion"];
                     newCancha.UrlImagen = (string)datos.Leer["UrlImagen"];
                     newCancha.TipoCancha = new TipoCancha((string)datos.Leer["Nombre"]);

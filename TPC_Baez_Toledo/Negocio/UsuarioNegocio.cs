@@ -70,7 +70,7 @@ namespace Negocio
         {
             try
             {
-                datos.SetearConsulta("SELECT U.Legajo,R.Nombre AS Rol,U.Nombre,U.Apellido,U.Email,U.Telefono FROM Usuarios AS U, Roles AS R WHERE R.ID = U.ROL AND Email=@Email and Contraseña=@Contraseña");
+                datos.SetearConsulta("SELECT U.Legajo,R.Nombre AS Rol,U.Contraseña,U.Nombre,U.Apellido,U.Email,U.Telefono FROM Usuarios AS U, Roles AS R WHERE R.ID = U.ROL AND Email=@Email and Contraseña=@Contraseña");
 
                 //datos.Comando.Parameters.AddWithValue("@Email", email);
                 datos.Comando.Parameters.AddWithValue("@Contraseña", contraseña);
@@ -86,6 +86,8 @@ namespace Negocio
                     us.Apellidos = (string)datos.Leer["Apellido"];
                     us.Email = (string)datos.Leer["Email"];
                     us.Telefono = (string)datos.Leer["Telefono"];
+                    us.Contraseña = (string)datos.Leer["Contraseña"];
+
                 }
                 return us;
             }
@@ -141,12 +143,12 @@ namespace Negocio
             try
             {
                 datos = new AccesoDatos();
-                string query = "UPDATE Usuarios SET Rol=@Rol,Nombre=@Nombre,Apellido=@Apellidos,Email=@Email,Telefono=@Telefono WHERE Legajo=" + nuevoUsuario.Legajo;
+                string query = "UPDATE Usuarios SET Nombre=@Nombre,Apellido=@Apellidos,Contraseña=@Contraseña,Email=@Email,Telefono=@Telefono WHERE Legajo=" + nuevoUsuario.Legajo;
                 datos.SetearConsulta(query);
 
-                datos.Comando.Parameters.AddWithValue("@Rol", nuevoUsuario.Rol.Id);
                 datos.Comando.Parameters.AddWithValue("@Nombre", nuevoUsuario.Nombre);
                 datos.Comando.Parameters.AddWithValue("@Apellidos", nuevoUsuario.Apellidos);
+                datos.Comando.Parameters.AddWithValue("@Contraseña", nuevoUsuario.Contraseña);
                 datos.Comando.Parameters.AddWithValue("@Email", nuevoUsuario.Email);
                 datos.Comando.Parameters.AddWithValue("@Telefono", nuevoUsuario.Telefono);
 
@@ -182,6 +184,6 @@ namespace Negocio
             }
         }
 
-        
+
     }
 }

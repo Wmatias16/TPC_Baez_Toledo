@@ -7,22 +7,23 @@ using Dominio;
 
 namespace Negocio
 {
-    class AlquilerNegocio
+    public class AlquilerNegocio
     {
         AccesoDatos datos = new AccesoDatos();
 
         public void Agregar(Alquiler NewAlquiler)
         {
             try
-            {   
-                string query = "INSERT INTO Alquileres VALUES(@LegajoUsuario,@IdCancha,@Precio,@Horas,@Fecha,@Estado)";
+            {
+                string values = "VALUES(@LegajoUsuario,@IdCancha,@Precio,@Horas,@Fecha,@Estado)";
+                string query = "INSERT INTO Alquileres LegajoUsuario,IdCancha,Precio,Horas,Fecha,Estado)" + values;
                 datos.SetearConsulta(query);
 
                 datos.Comando.Parameters.AddWithValue("@LegajoUsuario", NewAlquiler.Usuario.Legajo);
                 datos.Comando.Parameters.AddWithValue("@IdCancha", NewAlquiler.Cancha.Id);
                 datos.Comando.Parameters.AddWithValue("@Precio", NewAlquiler.Costo);
                 datos.Comando.Parameters.AddWithValue("@Horas", NewAlquiler.Horas);
-                datos.Comando.Parameters.AddWithValue("@Fecha", NewAlquiler.Fecha);///--------------Vefificar esto 
+                datos.Comando.Parameters.AddWithValue("@Fecha", NewAlquiler.Fecha);
                 datos.Comando.Parameters.AddWithValue("@Estado", 1);
 
                 datos.EjectutarAccion();
@@ -37,8 +38,34 @@ namespace Negocio
                 datos.CerraConexion();
             }
 
-        } 
+        }
+        public List<Alquiler> Listar()
+        {
+            List<Alquiler> listAlquiler = new List<Alquiler>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string Query = "SELECT * FROM ALQUILERES";
+                datos.SetearConsulta(Query);
+                datos.EjecutarLectura();
 
+                while (datos.Leer.Read())
+                {
+                    Alquiler alqui = new Alquiler();
+
+
+                }
+                return listAlquiler;
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                datos.CerraConexion();
+            }
+        }
         public void Eliminar(Alquiler AlquilerDelete)
         {
             try
@@ -46,9 +73,8 @@ namespace Negocio
                 string query = "UPDATE Alquiler SET Estado = 0 WHERE ID " + AlquilerDelete.Id;
                 datos.SetearConsulta(query);
                 datos.EjectutarAccion();
-
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 throw err;
             }

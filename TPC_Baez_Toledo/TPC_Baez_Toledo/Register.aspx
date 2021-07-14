@@ -34,7 +34,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
-                        <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" CssClass="form-control" TextMode="Email" runat="server"></asp:TextBox>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Contraseña</label>

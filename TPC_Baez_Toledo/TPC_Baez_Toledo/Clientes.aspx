@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
    
 
-    <div class="container" style="margin-top: 25px;">
-        <caption>Lista de clientes</caption>
+    <div class="container-fluid" style="margin-top: 25px;">
+        <caption style="margin-top: 25px;"><h3>Clientes</h3></caption>
         <table class="table caption-top">        
         <thead>
             <tr>

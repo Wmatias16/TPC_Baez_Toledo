@@ -20,8 +20,7 @@ namespace TPC_Baez_Toledo
             Lista = canchas.Listar();
 
             if (!IsPostBack)
-            {
-                
+            {                
                 Repetidor.DataSource = Lista;
                 Repetidor.DataBind();
             }
@@ -31,11 +30,12 @@ namespace TPC_Baez_Toledo
 
         protected void BtnEliminar(object sender, EventArgs e)
         {
-            var argument = ((Button)sender).CommandArgument;
+            var argument = ((LinkButton)sender).CommandArgument;
             CanchaNegocio cancha = new CanchaNegocio();
 
             cancha.Eliminar(int.Parse(argument));
 
+            Lista = cancha.Listar();
             Repetidor.DataSource = null;
             Repetidor.DataSource = Lista;
             Repetidor.DataBind();

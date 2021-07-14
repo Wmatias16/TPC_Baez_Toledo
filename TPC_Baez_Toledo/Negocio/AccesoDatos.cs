@@ -15,7 +15,7 @@ namespace Negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("data source=.\\SQLEXPRESS; initial catalog=Predio; integrated security=sspi");
+            conexion = new SqlConnection("data source=.\\; initial catalog=Predio; integrated security=sspi");
             comando = new SqlCommand();
         }
 

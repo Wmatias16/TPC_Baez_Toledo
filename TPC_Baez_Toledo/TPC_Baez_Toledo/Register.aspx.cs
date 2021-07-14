@@ -13,17 +13,17 @@ namespace TPC_Baez_Toledo
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			
+
 		}
 
 		protected void btnRegistrar_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				UsuarioNegocio UsuarioNeg = new UsuarioNegocio();		
+				UsuarioNegocio UsuarioNeg = new UsuarioNegocio();
 
-                if (!UsuarioNeg.Existe(txtEmail.Text))
-                {
+				if (!UsuarioNeg.Existe(txtEmail.Text))
+				{
 					if (txtPassword.Text == TxtConfirmarContra.Text)
 					{
 						Usuario NewUsuario = new Usuario();
@@ -37,15 +37,15 @@ namespace TPC_Baez_Toledo
 
 						UsuarioNeg.Agregar(NewUsuario);
 						Response.Redirect("Login.aspx");
-                    }
-                    else
-                    {
+					}
+					else
+					{
 						Session.Add("Error", "Las contraseñas no son iguales");
 					}
-				}				
+				}
 				else
 				{
-					Session.Add("Error", "Este mail ya existe");	
+					Session.Add("Error", "Este mail ya existe");
 				}
 
 			}
