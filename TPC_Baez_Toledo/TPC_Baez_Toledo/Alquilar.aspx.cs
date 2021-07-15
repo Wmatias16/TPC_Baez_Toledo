@@ -43,21 +43,32 @@ namespace TPC_Baez_Toledo
             int ultimoDia = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
             int DiaHoy = DateTime.Today.Day;
             int horaHoy = DateTime.Now.Hour;
-
-
             
+
+
+
 
 
 
             for (int i = DiaHoy; i <= ultimoDia; i++)
             {
                 string s = $"{i}/{DateTime.Today.Month}/{DateTime.Today.Year}";
-                listDias.Items.Add(i.ToString()+s);
+                listDias.Items.Add(i.ToString());
             }
-            for (int i = horaHoy + 1; i <= 24; i++)
+            if(int.Parse(listDias.SelectedValue)!= DiaHoy)
             {
-                listHorarios.Items.Add(new DateTime().AddHours(0 + i).AddMinutes(00).ToString("HH:mm"));
+                for (int i = 0 ; i <= 23; i++)
+                {
+                    listHorarios.Items.Add(new DateTime().AddHours(i).AddMinutes(00).ToString("HH:mm"));
+                }
             }
+            else {
+                for (int i = horaHoy + 1; i <= 23; i++)
+                {
+                    listHorarios.Items.Add(new DateTime().AddHours(0 + i).AddMinutes(00).ToString("HH:mm"));
+                }
+            }
+            
 
 
         }
@@ -65,6 +76,7 @@ namespace TPC_Baez_Toledo
         protected void btnAlquilar_Click(object sender, EventArgs e)
         {
             AlquilerNegocio alquiNegocio = new AlquilerNegocio();
+            CanchaNegocio NegCancha = new CanchaNegocio();
             string horarioSeleccionado = listHorarios.SelectedValue;
             string diaSeleccionado = listDias.SelectedValue;
 
@@ -72,11 +84,12 @@ namespace TPC_Baez_Toledo
 
             Alquiler alquilar = new Alquiler();
             alquilar.Usuario = (Usuario)Session["Usuario"];
-            alquilar.Cancha = new Cancha();
+            alquilar.Cancha = NegCancha.BuscarCancha(idCancha);           
             alquilar.Horas = 1;
-            alquilar.Fecha = new DateTime();
-
-
+            alquilar.HoraAlquilada = horarioSeleccionado;
+            alquilar.Fecha =  DateTime.Now;
+            alquilar.Costo = 500;
+            
 
             alquiNegocio.Agregar(alquilar);
 

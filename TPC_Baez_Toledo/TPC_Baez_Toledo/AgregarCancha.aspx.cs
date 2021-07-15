@@ -21,6 +21,7 @@ namespace TPC_Baez_Toledo
             foreach (TipoCancha item in Tipos)
             {
                 ListTipoCancha.Items.Add(item.Nombre);
+
             }
 
             if (!IsPostBack)

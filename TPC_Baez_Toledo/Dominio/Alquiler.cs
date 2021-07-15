@@ -14,6 +14,7 @@ namespace Dominio
         private Cancha cancha;
         private decimal costo;
         private int horas;
+        private string horaAlquilada;
         private DateTime fecha;
 
         //getts y setts
@@ -45,6 +46,12 @@ namespace Dominio
         {
             get { return horas; }
             set { horas = value; }
+        }
+
+        public string HoraAlquilada
+        {
+            get { return horaAlquilada; }
+            set { horaAlquilada = value; }
         }
 
         public DateTime  Fecha

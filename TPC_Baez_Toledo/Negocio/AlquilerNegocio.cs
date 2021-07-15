@@ -15,15 +15,16 @@ namespace Negocio
         {
             try
             {
-                string values = "VALUES(@LegajoUsuario,@IdCancha,@Precio,@Horas,@Fecha,@Estado)";
-                string query = "INSERT INTO Alquileres LegajoUsuario,IdCancha,Precio,Horas,Fecha,Estado)" + values;
+                string values = "VALUES(@LegajoUsuario,@IdCancha,@Precio,@Horas,@HoraAlquilada,@Fecha,@Estado)";
+                string query = "INSERT INTO Alquileres (LegajoUsuario,IdCancha,Precio,Horas,HoraAlquilada,Fecha,Estado)" + values;
                 datos.SetearConsulta(query);
 
                 datos.Comando.Parameters.AddWithValue("@LegajoUsuario", NewAlquiler.Usuario.Legajo);
                 datos.Comando.Parameters.AddWithValue("@IdCancha", NewAlquiler.Cancha.Id);
                 datos.Comando.Parameters.AddWithValue("@Precio", NewAlquiler.Costo);
                 datos.Comando.Parameters.AddWithValue("@Horas", NewAlquiler.Horas);
-                datos.Comando.Parameters.AddWithValue("@Fecha", NewAlquiler.Fecha);
+                datos.Comando.Parameters.AddWithValue("@HoraAlquilada", NewAlquiler.HoraAlquilada);
+                datos.Comando.Parameters.AddWithValue("@Fecha", NewAlquiler.Fecha.ToString("yyyy-MM-dd"));
                 datos.Comando.Parameters.AddWithValue("@Estado", 1);
 
                 datos.EjectutarAccion();

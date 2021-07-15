@@ -30,7 +30,13 @@
                     </div>
                 <div class="form-group">
                     <label for="InputTipoCamcha">Tipo de Cancha</label>
-                    <asp:ListBox ID="ListTipoCancha" runat="server"></asp:ListBox>
+
+                    <asp:DropDownList CssClass="custom-select" runat="server" ID="ListTipoCancha"
+                            AutoPostBack="false">                           
+                            
+                        </asp:DropDownList>
+
+
                 </div>
                 <div class="form-group">
                     <label for="inputDescripcion">Descripcion</label>
