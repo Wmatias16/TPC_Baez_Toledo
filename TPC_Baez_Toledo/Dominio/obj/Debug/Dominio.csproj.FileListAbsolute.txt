@@ -10,3 +10,8 @@ C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug
 C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.dll
 C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.pdb
 C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\Debug\Dominio.dll
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\Debug\Dominio.pdb
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.dll
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.pdb

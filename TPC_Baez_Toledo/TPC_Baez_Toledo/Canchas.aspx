@@ -18,7 +18,7 @@
                             <h5 class="card-title"><% = item.Precio %>$</h5>
                             <p class="card-text"><% = item.Descripcion %></p>
                              
-                            <a href="Alquilar.aspx?id=<% = item.Id %>" class="btn btn-primary btn-lg btn-block">Alquilar</a>
+                            <a href="Alquilar.aspx?id=<% = item.Id %>" class="btn btn-success btn-lg btn-block">Alquilar</a>
                         </div>
                     </div>
                 </div>

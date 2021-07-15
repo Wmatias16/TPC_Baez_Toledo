@@ -10,94 +10,96 @@
     <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
 
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/bootstrap.min.css" rel="stylesheet" type="text/css" id="stylesheet2" />
+    <link href="~/estilos.css" rel="stylesheet" type="text/css" id="stylesheet" />
+
 </head>
 <body>
     <form runat="server">
-        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Gestion de alquileres</a>
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <asp:Button ID="btnCerrarSesion" CssClass="btn btn-danger" OnClick="CerrarSesion" runat="server" Text="Cerrar session" style="margin:5px"/>
-                </li>
+       
 
-            </ul>
-        </nav>
 
-        <div class="container-fluid body-content">
-            <div class="row">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="sidebar-sticky pt-3">
-                        <ul class="nav flex-column">
-                            <%if (user.Rol.Nombre == "Administrador")
-                                { %>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Alquileres.aspx">
-                                    <span data-feather="file"></span>
-                                    Alquileres
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Clientes.aspx">
-                                    <span data-feather="file"></span>
-                                    Clientes
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="GestionCanchas.aspx">
-                                    <span data-feather="bar-chart-2"></span>
-                                    Administrar canchas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Reportes.aspx">
-                                    <span data-feather="bar-chart-2"></span>
-                                    Reportes
-                                </a>
-                            </li>
-                            <%}
-                                else
-                                {%>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Canchas.aspx">
-                                    <span data-feather="file"></span>
-                                    Canchas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="MisAlquileres.aspx">
-                                    <span data-feather="shopping-cart"></span>
-                                    Mis alquileres
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Configuracion.aspx">
-                                    <span data-feather="shopping-cart"></span>
-                                    Configurar cuenta
-                                </a>
-                            </li>
-                            <%}%>
-                        </ul>
+
+        <div class="d-flex" id="content-wrapper">
+
+            <!-- Sidebar -->
+            <div id="sidebar-container" class="bg-light border-right">
+                <div class="logo">
+                    <h4 class="font-weight-bold mb-0">Gestion de alquileres</h4>
+                </div>
+                <div class="menu list-group-flush">
+                    <a href="Page-admin.aspx" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
+                        class="icon ion-md-apps lead mr-2"></i>Dashboard</a>
+                    <a href="Canchas.aspx" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
+                        class="icon ion-md-apps lead mr-2"></i>Canchas</a>
+                    <a href="Clientes.aspx" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
+                        class="icon ion-md-people lead mr-2"></i>Usuarios</a>
+                    <a href="GestionCanchas.aspx" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
+                        class="icon ion-md-stats lead mr-2"></i>Gestionar canchas</a>
+                    <a href="#" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
+                        class="icon ion-md-calendar lead mr-2"></i>Eventos</a>
+                    <a href="#" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
+                        class="icon ion-md-person lead mr-2"></i>Perfil</a>
+                    <a href="#" class="list-group-item list-group-item-action text-muted bg-light p-3 border-0"><i
+                        class="icon ion-md-settings lead mr-2"></i>Configuración</a>
+                </div>
+            </div>
+            <!-- Fin sidebar -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper" class="w-100 bg-light-blue">
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                                <li class="nav-item active">
+                                    <a class="nav-link text-dark" href="#">Inicio</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=user.Nombre %>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="Configuracion.aspx">Mi perfil</a>
+                                        <a class="dropdown-item" href="#">Suscripciones</a>
+                                        <div class="dropdown-divider"></div>
+                                        <asp:Button ID="btnCerrar" class="dropdown-item" runat="server" OnClick="CerrarSesion" Text="Cerrar sesión" />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
 
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                    </asp:ContentPlaceHolder>
-                </main>
-                <hr />
-                <footer>
-                    <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
-                </footer>
+                <div id="content" class="container-fluid p-5">
+                   <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                   </asp:ContentPlaceHolder>
+                </div>
             </div>
+            <!-- Fin Page Content -->
         </div>
+        <!-- Fin wrapper -->
+
+        
+
+
+         <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/jquery.js" />
+                <asp:ScriptReference Path="~/Scripts/bootstrap.min.js" />
+                <asp:ScriptReference Path="~/Scripts/main.js" />               
+                
+            </Scripts>
+        </asp:ScriptManager>
+
     </form>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
 </body>
 </html>
