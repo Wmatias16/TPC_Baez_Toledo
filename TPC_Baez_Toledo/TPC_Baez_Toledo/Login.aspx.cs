@@ -12,7 +12,7 @@ namespace TPC_Baez_Toledo
 {
     public partial class Login : System.Web.UI.Page
     {
-        public bool error = false;
+        public string error;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,22 +25,26 @@ namespace TPC_Baez_Toledo
             if (negocio.Existe(txtEmail.Text) == true)
             {
 
-                Usuario user = negocio.Validar(txtEmail.Text, txtPassword.Text);
+                Usuario user = negocio.Validar(txtPassword.Text);
 
-                if (user != null)
+                if (user.Email != null)
                 {
                     Session.Add("Usuario", user);
+                    Session["Error"] = null;
                     Response.Redirect("Canchas.aspx");
+                    
                 }
                 else
                 {
-                    Session["ERROR"] = "Contraseña incorrecta";
+                    Session["Error"] = "Contraseña incorrecta";
+                    error = (string)Session["Error"];
                 }
 
             }
             else
             {
-                Session.Add("Error", "No existe este mail");
+                Session["Error"] = "No existe este mail";
+                error = (string)Session["Error"];
             }
         }
     }

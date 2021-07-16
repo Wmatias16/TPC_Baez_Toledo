@@ -10,18 +10,24 @@
     <title></title>
 </head>
 <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Gestion de alquileres</a>
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="Register.aspx">Registrarse</a>
-                </li>
-            </ul>
-        </nav>
 
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Gestion de alquileres</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="Register.aspx">Registrarse</a>
+            </li>
+        </ul>
+    </nav>
+      <%if (Session["Error"] != null)
+        { %>
+            <div class="alert alert-danger" role="alert">
+                 Posible error: <%=error %>
+            </div>
+    <%} %>
 
     <form id="form1" runat="server">
         <div class="container" style="margin-top: 150px;">
@@ -33,7 +39,7 @@
                     <h1 class="text-center">Iniciar sesion</h1>
 
                     <div class="mb-3">
-                        <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" TextMode="Email"></asp:TextBox>
                         <div id="emailHelp" class="form-text">Porfavor ingrese su email si esta registrado</div>
                     </div>
                     <div class="mb-3">

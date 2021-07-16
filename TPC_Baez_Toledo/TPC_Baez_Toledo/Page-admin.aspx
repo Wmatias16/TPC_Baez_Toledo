@@ -68,40 +68,59 @@
                 </div>
             </div>
             <!-- Fin highlights -->
+             <nav>
+                    <div class="nav nav-tabs nav justify-content-center" id="nav-tab" role="tablist">
+                        <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" style="width:50%;text-align:center;">Proximos turnos</a>
+                        <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"style="width:50%;text-align:center;" >Pendientes de aprobacion</a>
+                    </div>
+                </nav>
+            <div class="container-fluid">
+               
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <caption style="margin-top: 25px;">
+                            <h3>Proximos turnos</h3>
+                        </caption>
+                        <table class="table caption-top">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Legajo</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Telefono</th>
+                                </tr>
+                            </thead>
 
-                <div class="row">
-                    <caption style="margin-top: 25px;">
-                        <h3>Proximos turnos</h3>
-                    </caption>
-                    <table class="table caption-top">
-                        <thead>
-                            <tr>
-                                <th scope="col">Legajo</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Apellido</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Telefono</th>
-                            </tr>
-                        </thead>
+                            <tbody>
 
-                        <tbody>
+                                <%foreach (Dominio.Usuario item in clientes)
+                                    {%>
+                                <tr>
+                                    <th scope="row"><%=item.Legajo %></th>
+                                    <td><%=item.Nombre %></td>
+                                    <td><%=item.Apellidos %></td>
+                                    <td><%=item.Email %></td>
+                                    <td><%=item.Telefono %></td>
+                                </tr>
+                                <%} %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
-                            <%foreach (Dominio.Usuario item in clientes)
-                                {%>
-                            <tr>
-                                <th scope="row"><%=item.Legajo %></th>
-                                <td><%=item.Nombre %></td>
-                                <td><%=item.Apellidos %></td>
-                                <td><%=item.Email %></td>
-                                <td><%=item.Telefono %></td>
-                            </tr>
-                            <%} %>
-                        </tbody>
-                    </table>
+                        <h1>Hola mundo</h1>
+                    </div>
 
                 </div>
+
+
+
+
+
+            </div>
     </div>
 
-   
+
 
 </asp:Content>

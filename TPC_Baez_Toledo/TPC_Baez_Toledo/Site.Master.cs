@@ -12,7 +12,7 @@ namespace TPC_Baez_Toledo
     {
 
         public Usuario user;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Usuario"] == null)

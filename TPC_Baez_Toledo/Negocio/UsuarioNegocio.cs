@@ -66,13 +66,11 @@ namespace Negocio
                 datos.CerraConexion();
             }
         }
-        public Usuario Validar(string email, string contraseña)
+        public Usuario Validar(string contraseña)
         {
             try
             {
                 datos.SetearConsulta("SELECT U.Legajo,R.Nombre AS Rol,U.Contraseña,U.Nombre,U.Apellido,U.Email,U.Telefono FROM Usuarios AS U, Roles AS R WHERE R.ID = U.ROL AND Email=@Email and Contraseña=@Contraseña");
-
-                //datos.Comando.Parameters.AddWithValue("@Email", email);
                 datos.Comando.Parameters.AddWithValue("@Contraseña", contraseña);
 
                 datos.EjecutarLectura();
