@@ -56,6 +56,15 @@ namespace Dominio
             set { telefono = value; }
         }
 
+        public Usuario(int Legajo)
+        {
+            this.legajo = Legajo;
+        }
+
+        public Usuario()
+        {
+        }
+
     }
 
 }

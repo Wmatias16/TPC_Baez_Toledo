@@ -53,6 +53,14 @@ namespace Dominio
             get { return nombre; }
             set { nombre = value; }
         }
+        public Cancha(string Nombre)
+        {
+            this.Nombre = Nombre;
+        }
+
+        public Cancha()
+        {
+        }
 
 
     }

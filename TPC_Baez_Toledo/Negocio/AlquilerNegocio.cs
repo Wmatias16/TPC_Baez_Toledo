@@ -53,7 +53,7 @@ namespace Negocio
                 while (datos.Leer.Read())
                 {
                     Alquiler alqui = new Alquiler();
-
+                    //------------------------------------------------------
 
                 }
                 return listAlquiler;
@@ -85,5 +85,46 @@ namespace Negocio
             }
 
         }
+
+        public List<Alquiler> ListarProxTurno(string fecha)
+        {
+            List<Alquiler> listAlquiler = new List<Alquiler>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string Query = " select a.LegajoUsuario,u.Nombre,u.Apellido,c.Nombre as Ncancha,a.Precio,a.Horas,a.HoraAlquilada,a.Fecha from Alquileres as a  Join Canchas as c on c.Id = a.IdCancha  Join Usuarios as u on u.Legajo = a.LegajoUsuario  where Fecha = '" + fecha + "' order by HoraAlquilada asc ";
+
+                datos.SetearConsulta(Query);
+                datos.EjecutarLectura();
+
+                while (datos.Leer.Read())
+                {
+                    Alquiler alqui = new Alquiler();
+                    alqui.Usuario = new Usuario((int)datos.Leer["LegajoUsuario"]);
+                    alqui.Usuario.Nombre = (string)datos.Leer["Nombre"];
+                    alqui.Usuario.Apellidos = (string)datos.Leer["Apellido"];
+                    alqui.Cancha = new Cancha((string)datos.Leer["Ncancha"]);
+                    alqui.Costo = (decimal)datos.Leer["Precio"];
+                    alqui.Horas = (Int16)datos.Leer["Horas"];
+                    alqui.HoraAlquilada = (string)datos.Leer["HoraAlquilada"];
+                    alqui.Fecha = (DateTime)datos.Leer["Fecha"];
+
+
+                    listAlquiler.Add(alqui);
+
+                }
+                return listAlquiler;
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                datos.CerraConexion();
+            }
+        }
     }
+
+        
 }

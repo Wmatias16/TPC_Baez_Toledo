@@ -94,24 +94,30 @@
                         <table class="table caption-top">
                             <thead>
                                 <tr>
-                                    <th scope="col">Legajo</th>
+                                    <th scope="col">Legajo Usuario</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellido</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Telefono</th>
+                                    <th scope="col">Nombre de la canc</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Horas</th>
+                                    <th scope="col">Hora Alquilada</th>
+                                    <th scope="col">Fecha</th>
                                 </tr>
                             </thead>
 
                             <tbody>
 
-                                <%foreach (Dominio.Usuario item in clientes)
+                                <%foreach (Dominio.Alquiler item in Alquileres)
                                     {%>
                                 <tr>
-                                    <th scope="row"><%=item.Legajo %></th>
-                                    <td><%=item.Nombre %></td>
-                                    <td><%=item.Apellidos %></td>
-                                    <td><%=item.Email %></td>
-                                    <td><%=item.Telefono %></td>
+                                    <th scope="row"><%=item.Usuario.Legajo %></th>
+                                    <td><%=item.Usuario.Nombre %></td>
+                                    <td><%=item.Usuario.Apellidos %></td>
+                                    <td><%=item.Cancha.Nombre %></td>
+                                    <td><%=item.Costo %></td>
+                                    <td><%=item.Horas %></td>
+                                    <td><%=item.HoraAlquilada %></td>
+                                     <td><%=item.Fecha %></td>
                                 </tr>
                                 <%} %>
                             </tbody>

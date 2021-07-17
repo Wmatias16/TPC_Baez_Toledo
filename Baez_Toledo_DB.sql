@@ -1,7 +1,6 @@
 USE master
 GO
-drop database Predio
-GO
+
 Create database Predio;
 GO
 USE Predio;
@@ -56,6 +55,7 @@ CREATE TABLE Alquileres(
 	IdCancha SMALLINT FOREIGN KEY REFERENCES Canchas(Id) NOT NULL,
 	Precio Decimal NOT NULL CHECK( Precio > 0 ),
 	Horas SMALLINT NOT NULL CHECK (Horas > 0 ),
+	HoraAlquilada varchar(5) NOT NULL,
 	Fecha DATE NOT NULL,
 	Estado SMALLINT NOT NULL ,
 );
@@ -79,6 +79,4 @@ INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
 VALUES('Cancha de 11',1,'La bombonera ubicada en la rivera',5000,'https://www.canchasupergol.com/uploads/1/3/3/7/133786110/canchas-sinteticas-americas-68_orig.png')
 
 
-
-
-SELECT * FROM Canchas 
+ 

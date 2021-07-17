@@ -13,13 +13,13 @@ namespace TPC_Baez_Toledo
 {
     public partial class Page_admin : System.Web.UI.Page
     {
-        public List<Usuario> clientes = new List<Usuario>();
+        public List<Alquiler> Alquileres = new List<Alquiler>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            UsuarioNegocio userNegocio = new UsuarioNegocio();
+            AlquilerNegocio alquiler  = new AlquilerNegocio();
 
-            clientes = userNegocio.Listar();
+            Alquileres = alquiler.ListarProxTurno(DateTime.Now.ToString("yyyy-MM-dd"));
         }
     }
 }
