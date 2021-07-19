@@ -40,10 +40,7 @@ namespace TPC_Baez_Toledo
                     listDias.Items.Add(i.ToString());
                 }
 
-                for (int i = horaHoy + 1; i <= 23; i++)
-                {
-                    listHorarios.Items.Add(new DateTime().AddHours(0 + i).AddMinutes(00).ToString("HH:mm"));
-                }
+               
             }
 
             idCancha = int.Parse(Request.QueryString["Id"]);
@@ -71,7 +68,19 @@ namespace TPC_Baez_Toledo
                 {
                     listHorarios.Items.Add(new DateTime().AddHours(i).AddMinutes(00).ToString("HH:mm"));
                 }
-            }        
+
+
+            }
+            else
+            {
+
+                listHorarios.Items.Clear();
+
+                for (int i = horaHoy + 1; i <= 23; i++)
+                {
+                    listHorarios.Items.Add(new DateTime().AddHours(0 + i).AddMinutes(00).ToString("HH:mm"));
+                }
+            }
 
             List<string> horaAlqui = alquiNeg.listaHorariosAlquilados(fechaSeleccionada.ToString("yyyy-MM-dd"), int.Parse(Request.QueryString["Id"]));
 

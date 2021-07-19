@@ -133,7 +133,7 @@
     <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="bootstrap.min.css" />
-    <Content Include="WebForm4.aspx" />
+    <Content Include="MisAlquileres.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Page-admin.aspx" />
@@ -270,12 +270,12 @@
     <Compile Include="AgregarCancha.aspx.designer.cs">
       <DependentUpon>AgregarCancha.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm4.aspx.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="MisAlquileres.aspx.cs">
+      <DependentUpon>MisAlquileres.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm4.aspx.designer.cs">
-      <DependentUpon>WebForm4.aspx</DependentUpon>
+    <Compile Include="MisAlquileres.aspx.designer.cs">
+      <DependentUpon>MisAlquileres.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -61,8 +61,6 @@ namespace Dominio
         public Cancha()
         {
         }
-
-
     }
 }
 
