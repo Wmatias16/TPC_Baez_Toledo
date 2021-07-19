@@ -124,6 +124,37 @@ namespace Negocio
                 datos.CerraConexion();
             }
         }
+
+        public List<string> listaHorariosAlquilados(string fecha,int idCancha)
+        {
+            List<string> horariosAlqui = new List<string>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string Query = "select HoraAlquilada as Hora from Alquileres WHERE IdCancha=@idCancha  AND Fecha=@Fecha";
+
+                datos.Comando.Parameters.AddWithValue("@idCancha",idCancha);
+                datos.Comando.Parameters.AddWithValue("@Fecha", fecha);
+
+                datos.SetearConsulta(Query);
+                datos.EjecutarLectura();
+
+                while (datos.Leer.Read())
+                {
+                    horariosAlqui.Add((string)datos.Leer["Hora"]);
+                }
+                return horariosAlqui;
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                datos.CerraConexion();
+            }
+        }
+
     }
 
         

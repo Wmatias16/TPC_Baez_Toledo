@@ -17,7 +17,7 @@
                             <label class="input-group-text" for="inputGroupSelect01">Dia disponibles</label>
                         </div>
                         <asp:DropDownList CssClass="custom-select" runat="server" ID="listDias"
-                            AutoPostBack="true">                           
+                            AutoPostBack="true" OnTextChanged="listDias_TextChanged">                           
                             
                         </asp:DropDownList>
                     </div>
@@ -35,5 +35,6 @@
             </div>
         </div>
     </div>
+
 
 </asp:Content>

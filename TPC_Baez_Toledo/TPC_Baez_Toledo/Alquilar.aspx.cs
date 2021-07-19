@@ -15,15 +15,35 @@ namespace TPC_Baez_Toledo
     {
         public Cancha cancha = new Cancha();
         public int idCancha;
+        public DateTime fechaSeleccionada;
+        string horarioSeleccionado;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            horarioSeleccionado = listHorarios.SelectedValue;
+
             List<Cancha> canchas = new List<Cancha>();
             CanchaNegocio canchaNeg = new CanchaNegocio();
+        
+            AlquilerNegocio alquiNeg = new AlquilerNegocio();
+            int ultimoDia = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
+            int DiaHoy = DateTime.Today.Day;
+            int horaHoy = DateTime.Now.Hour;
 
             if (!IsPostBack)
-            {
+            {              
+                listDias.Items.Clear();
 
+                for (int i = DiaHoy; i <= ultimoDia; i++)
+                {
+                    string s = $"{i}/{DateTime.Today.Month}/{DateTime.Today.Year}";
+                    listDias.Items.Add(i.ToString());
+                }
 
+                for (int i = horaHoy + 1; i <= 23; i++)
+                {
+                    listHorarios.Items.Add(new DateTime().AddHours(0 + i).AddMinutes(00).ToString("HH:mm"));
+                }
             }
 
             idCancha = int.Parse(Request.QueryString["Id"]);
@@ -40,59 +60,56 @@ namespace TPC_Baez_Toledo
             List<DateTime> hours = new List<DateTime>();
             List<int> dias = new List<int>();
 
-            int ultimoDia = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
-            int DiaHoy = DateTime.Today.Day;
-            int horaHoy = DateTime.Now.Hour;
-            
+            fechaSeleccionada = new DateTime(DateTime.Today.Year, DateTime.Today.Month, int.Parse(listDias.SelectedValue));
 
 
-
-
-
-
-            for (int i = DiaHoy; i <= ultimoDia; i++)
+            if (int.Parse(listDias.SelectedValue) != DiaHoy)
             {
-                string s = $"{i}/{DateTime.Today.Month}/{DateTime.Today.Year}";
-                listDias.Items.Add(i.ToString());
-            }
-            if(int.Parse(listDias.SelectedValue)!= DiaHoy)
-            {
-                for (int i = 0 ; i <= 23; i++)
+                listHorarios.Items.Clear();
+
+                for (int i = 0; i <= 23; i++)
                 {
                     listHorarios.Items.Add(new DateTime().AddHours(i).AddMinutes(00).ToString("HH:mm"));
                 }
-            }
-            else {
-                for (int i = horaHoy + 1; i <= 23; i++)
+            }        
+
+            List<string> horaAlqui = alquiNeg.listaHorariosAlquilados(fechaSeleccionada.ToString("yyyy-MM-dd"), int.Parse(Request.QueryString["Id"]));
+
+            foreach (string hora in horaAlqui)
+            {
+                ListItem itemToRemove = listHorarios.Items.FindByValue(hora);
+
+                if (itemToRemove != null)
                 {
-                    listHorarios.Items.Add(new DateTime().AddHours(0 + i).AddMinutes(00).ToString("HH:mm"));
+                    listHorarios.Items.Remove(itemToRemove);
                 }
             }
-            
-
-
         }
 
         protected void btnAlquilar_Click(object sender, EventArgs e)
         {
             AlquilerNegocio alquiNegocio = new AlquilerNegocio();
-            CanchaNegocio NegCancha = new CanchaNegocio();
-            string horarioSeleccionado = listHorarios.SelectedValue;
+            CanchaNegocio NegCancha = new CanchaNegocio();            
             string diaSeleccionado = listDias.SelectedValue;
-
-
 
             Alquiler alquilar = new Alquiler();
             alquilar.Usuario = (Usuario)Session["Usuario"];
             alquilar.Cancha = NegCancha.BuscarCancha(idCancha);           
             alquilar.Horas = 1;
             alquilar.HoraAlquilada = horarioSeleccionado;
-            alquilar.Fecha =  DateTime.Now;
-            alquilar.Costo = 500;
+            alquilar.Fecha =  fechaSeleccionada;
+            alquilar.Costo = alquilar.Cancha.Precio * alquilar.Horas;
             
 
             alquiNegocio.Agregar(alquilar);
 
         }
+
+        protected void listDias_TextChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
+
     }
 }

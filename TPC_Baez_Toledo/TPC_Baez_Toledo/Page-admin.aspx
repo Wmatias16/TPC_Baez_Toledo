@@ -117,7 +117,7 @@
                                     <td><%=item.Costo %></td>
                                     <td><%=item.Horas %></td>
                                     <td><%=item.HoraAlquilada %></td>
-                                     <td><%=item.Fecha %></td>
+                                     <td><%=item.Fecha.ToString("yyyy-MM-dd") %></td>
                                 </tr>
                                 <%} %>
                             </tbody>
