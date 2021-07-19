@@ -16,9 +16,16 @@ namespace TPC_Baez_Toledo
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            UsuarioNegocio userNegocio = new UsuarioNegocio();
+            if (Session["Usuario"]!=null &&((Usuario)Session["Usuario"]).Rol.Nombre == "Administrador")
+            {
+                UsuarioNegocio userNegocio = new UsuarioNegocio();
 
-            clientes = userNegocio.Listar();
+                clientes = userNegocio.Listar();
+            }
+            else
+            {
+                Response.Redirect("Error.aspx");
+            }           
         }
     }
 }

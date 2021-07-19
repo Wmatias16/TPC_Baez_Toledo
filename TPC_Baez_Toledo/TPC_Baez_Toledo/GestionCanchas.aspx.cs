@@ -15,15 +15,23 @@ namespace TPC_Baez_Toledo
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CanchaNegocio canchas = new CanchaNegocio();
 
-            Lista = canchas.Listar();
+            if (Session["Usuario"] != null && ((Usuario)Session["Usuario"]).Rol.Nombre == "Administrador")
+            {
+                CanchaNegocio canchas = new CanchaNegocio();
 
-            if (!IsPostBack)
-            {                
-                Repetidor.DataSource = Lista;
-                Repetidor.DataBind();
+                Lista = canchas.Listar();
+
+                if (!IsPostBack)
+                {
+                    Repetidor.DataSource = Lista;
+                    Repetidor.DataBind();
+                }
             }
+            else
+            {
+                Response.Redirect("Error.aspx");
+            }          
 
         }
 

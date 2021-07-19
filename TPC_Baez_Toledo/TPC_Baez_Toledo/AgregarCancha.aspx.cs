@@ -17,29 +17,36 @@ namespace TPC_Baez_Toledo
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<TipoCancha> Tipos = new List<TipoCancha>();
-            Tipos = CanchaNeg.ListarTipoCancha();
-            
-            foreach (TipoCancha item in Tipos)
+            if (Session["Usuario"] != null &&((Usuario)Session["Usuario"]).Rol.Nombre == "Administrador")
             {
-                ListTipoCancha.Items.Add(item.Nombre);
-            }
+                List<TipoCancha> Tipos = new List<TipoCancha>();
+                Tipos = CanchaNeg.ListarTipoCancha();
 
-            if (!IsPostBack)
-            {
-                if (Request.QueryString["id"] != null)
+                foreach (TipoCancha item in Tipos)
                 {
-                    Cancha NewCancha = new Cancha();
+                    ListTipoCancha.Items.Add(item.Nombre);
+                }
 
-                    NewCancha = CanchaNeg.BuscarCancha(int.Parse(Request.QueryString["id"]));
-                    linkImg = NewCancha.UrlImagen;
-                    TxtNombre.Text = NewCancha.Nombre;
-                    TxtDescripcion.Text = NewCancha.Descripcion;
-                    TxtPrecio.Text = NewCancha.Precio.ToString();
-                    TxtUrlImagen.Text = NewCancha.UrlImagen;
-                    ListTipoCancha.SelectedValue = NewCancha.TipoCancha.Nombre;
+                if (!IsPostBack)
+                {
+                    if (Request.QueryString["id"] != null)
+                    {
+                        Cancha NewCancha = new Cancha();
+
+                        NewCancha = CanchaNeg.BuscarCancha(int.Parse(Request.QueryString["id"]));
+                        linkImg = NewCancha.UrlImagen;
+                        TxtNombre.Text = NewCancha.Nombre;
+                        TxtDescripcion.Text = NewCancha.Descripcion;
+                        TxtPrecio.Text = NewCancha.Precio.ToString();
+                        TxtUrlImagen.Text = NewCancha.UrlImagen;
+                        ListTipoCancha.SelectedValue = NewCancha.TipoCancha.Nombre;
+                    }
                 }
             }
+            else
+            {
+                Response.Redirect("Error.aspx");
+            }         
         }
 
         protected void BtnAgregar(object sender, EventArgs e)

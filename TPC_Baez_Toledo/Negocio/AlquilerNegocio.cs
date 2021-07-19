@@ -170,7 +170,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string Query = "select HoraAlquilada as Hora from Alquileres WHERE IdCancha=@idCancha  AND Fecha=@Fecha";
+                string Query = "select HoraAlquilada as Hora from Alquileres WHERE IdCancha=@idCancha AND Fecha=@Fecha";
 
                 datos.Comando.Parameters.AddWithValue("@idCancha",idCancha);
                 datos.Comando.Parameters.AddWithValue("@Fecha", fecha);

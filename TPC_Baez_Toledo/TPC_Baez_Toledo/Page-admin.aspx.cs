@@ -17,9 +17,18 @@ namespace TPC_Baez_Toledo
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            AlquilerNegocio alquiler  = new AlquilerNegocio();
+            if(Session["Usuario"] != null && ((Usuario)Session["Usuario"]).Rol.Nombre == "Administrador")
+            {
+                AlquilerNegocio alquiler = new AlquilerNegocio();
 
-            Alquileres = alquiler.ListarProxTurno(DateTime.Now.ToString("yyyy-MM-dd"));
+                Alquileres = alquiler.ListarProxTurno(DateTime.Now.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                Response.Redirect("Error.aspx");
+            }
+
+            
         }
     }
 }

@@ -31,7 +31,15 @@ namespace TPC_Baez_Toledo
                 {
                     Session.Add("Usuario", user);
                     Session["Error"] = null;
-                    Response.Redirect("Canchas.aspx");
+
+                    if(user.Rol.Nombre == "Administrador")
+                    {
+                        Response.Redirect("Page-admin.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("Canchas.aspx");
+                    }                    
                     
                 }
                 else
