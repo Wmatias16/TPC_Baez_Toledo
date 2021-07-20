@@ -33,6 +33,15 @@ namespace TPC_Baez_Toledo
         protected global::System.Web.UI.WebControls.DropDownList listHorarios;
 
         /// <summary>
+        /// Control listMetodoPago.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList listMetodoPago;
+
+        /// <summary>
         /// Control btnAlquilar.
         /// </summary>
         /// <remarks>

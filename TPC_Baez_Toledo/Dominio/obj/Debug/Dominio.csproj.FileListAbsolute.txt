@@ -15,3 +15,10 @@ C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\De
 C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.dll
 C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.pdb
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\Debug\Lexim.MercadoPago.dll
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\Debug\Remotion.Linq.dll
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\bin\Debug\Remotion.Linq.xml
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Dominio\obj\Debug\Dominio.csproj.CopyComplete

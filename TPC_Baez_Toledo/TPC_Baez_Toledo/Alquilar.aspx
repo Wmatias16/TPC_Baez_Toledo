@@ -9,9 +9,14 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title"><%=cancha.Nombre %></h5>
-                    <h5 class="card-title"><%=cancha.Precio %></h5>
-                    <p class="card-text"><%=cancha.Descripcion %></p>
+
+                    <div class="row">
+                        <h5 class="card-title col-md-6"><%=cancha.Nombre %></h5>
+                        <h5 style="text-align:end;font-size:1.5em;color:green;" class="card-title col-md-6"><%=cancha.Precio %>$</h5>
+                        <p class="card-text col-md-12"style="margin-bottom:35px;"><%=cancha.Descripcion %></p>
+                    </div>
+
+                    
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">Dia disponibles</label>
@@ -26,6 +31,16 @@
                             <label class="input-group-text" for="inputGroupSelect01">Horarios disponibles</label>
                         </div>
                         <asp:DropDownList CssClass="custom-select" runat="server" ID="listHorarios"
+                            AutoPostBack="false">                           
+                            
+                        </asp:DropDownList>
+
+                    </div>
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Metodo de pago</label>
+                        </div>
+                        <asp:DropDownList CssClass="custom-select" runat="server" ID="listMetodoPago"
                             AutoPostBack="false">                           
                             
                         </asp:DropDownList>

@@ -238,3 +238,6 @@ C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toled
 C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\obj\Debug\TPC_Baez_Toledo.csproj.CopyComplete
 C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\obj\Debug\TPC_Baez_Toledo.dll
 C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\obj\Debug\TPC_Baez_Toledo.pdb
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\bin\Lexim.MercadoPago.dll
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\bin\Remotion.Linq.dll
+C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\bin\Remotion.Linq.xml

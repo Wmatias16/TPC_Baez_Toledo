@@ -35,7 +35,7 @@ namespace TPC_Baez_Toledo
                 for (int i = DiaHoy; i <= ultimoDia; i++)
                 {
                     string s = $"{i}/{DateTime.Today.Month}/{DateTime.Today.Year}";
-                    listDias.Items.Add(i.ToString());
+                    listDias.Items.Add(i.ToString() +"  "+ new DateTime(DateTime.Today.Year, DateTime.Today.Month,i).ToString("dddd"));
                 }
 
                 if (Request.QueryString["Id"] != null)
@@ -51,7 +51,11 @@ namespace TPC_Baez_Toledo
                     {
                         Response.Redirect("Error.aspx");
                     }                    
-                }               
+                }
+
+
+                listMetodoPago.Items.Add("Efectivo");
+                listMetodoPago.Items.Add("Mercado Pago");
             }
 
 
@@ -69,7 +73,7 @@ namespace TPC_Baez_Toledo
             horarioSeleccionado = listHorarios.SelectedValue;
 
 
-            if (int.Parse(listDias.SelectedValue) != DiaHoy)
+            if (int.Parse(listDias.SelectedValue.Substring(0,2)) != DiaHoy)
             {
                 listHorarios.Items.Clear();
 
@@ -88,7 +92,7 @@ namespace TPC_Baez_Toledo
                 }
             }
 
-            fechaSeleccionada = new DateTime(DateTime.Today.Year, DateTime.Today.Month, int.Parse(listDias.SelectedValue));
+            fechaSeleccionada = new DateTime(DateTime.Today.Year, DateTime.Today.Month, int.Parse(listDias.SelectedValue.Substring(0,2)));
 
             List<string> horasAlquiladas = alquiNeg.listaHorariosAlquilados(fechaSeleccionada.ToString("yyyy-MM-dd"),idCancha);
 
@@ -118,7 +122,14 @@ namespace TPC_Baez_Toledo
             alquilar.Costo = alquilar.Cancha.Precio * alquilar.Horas;
 
 
-            alquiNegocio.Agregar(alquilar);
+            MercadoLibre mercadoPago = new MercadoLibre();
+
+            if(listMetodoPago.SelectedValue != "Efectivo")
+            {
+                mercadoPago.Pagar(alquilar);
+            }            
+
+            alquiNegocio.Agregar(alquilar);             
 
             Response.Redirect("MisAlquileres.aspx");           
 
