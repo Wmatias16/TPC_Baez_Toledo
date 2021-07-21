@@ -12,6 +12,7 @@ namespace TPC_Baez_Toledo
     public partial class WebForm3 : System.Web.UI.Page
     {
         CanchaNegocio CanchaNeg = new CanchaNegocio();
+        TipoCanchaNegocio TipoNeg = new TipoCanchaNegocio();
 
         public string linkImg = "./Img/Cancha.jpg";
 
@@ -20,7 +21,7 @@ namespace TPC_Baez_Toledo
             if (Session["Usuario"] != null &&((Usuario)Session["Usuario"]).Rol.Nombre == "Administrador")
             {
                 List<TipoCancha> Tipos = new List<TipoCancha>();
-                Tipos = CanchaNeg.ListarTipoCancha();
+                Tipos = TipoNeg.ListarTipoCancha();
 
                 foreach (TipoCancha item in Tipos)
                 {
@@ -58,7 +59,7 @@ namespace TPC_Baez_Toledo
 
                 newCancha.Nombre = TxtNombre.Text;
                 newCancha.Precio = Decimal.Parse(TxtPrecio.Text);
-                newCancha.TipoCancha = CanchaNeg.BuscarTipoCancha(ListTipoCancha.SelectedValue);
+                newCancha.TipoCancha = TipoNeg.BuscarTipoCancha(ListTipoCancha.SelectedValue);
                 newCancha.Descripcion = TxtDescripcion.Text;
                 newCancha.UrlImagen = TxtUrlImagen.Text;
 
@@ -76,7 +77,7 @@ namespace TPC_Baez_Toledo
                 newCancha.Id = int.Parse(Request.QueryString["id"]);
                 newCancha.Nombre = TxtNombre.Text;
                 newCancha.Precio = Decimal.Parse(TxtPrecio.Text);
-                newCancha.TipoCancha = CanchaNeg.BuscarTipoCancha(ListTipoCancha.SelectedValue);
+                newCancha.TipoCancha = TipoNeg.BuscarTipoCancha(ListTipoCancha.SelectedValue);
                 newCancha.Descripcion = TxtDescripcion.Text;
                 newCancha.UrlImagen = TxtUrlImagen.Text;
 

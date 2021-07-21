@@ -30,3 +30,8 @@ C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\De
 C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Remotion.Linq.dll
 C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Newtonsoft.Json.xml
 C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Remotion.Linq.xml
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Lexim.MercadoPago.dll
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Newtonsoft.Json.dll
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Remotion.Linq.dll
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Newtonsoft.Json.xml
+C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\Negocio\bin\Debug\Remotion.Linq.xml

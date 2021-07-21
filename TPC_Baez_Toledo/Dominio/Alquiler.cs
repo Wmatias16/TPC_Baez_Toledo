@@ -16,6 +16,7 @@ namespace Dominio
         private int horas;
         private string horaAlquilada;
         private DateTime fecha;
+        private EstadoAlquiler estado;
 
         //getts y setts
         public int Id
@@ -34,6 +35,12 @@ namespace Dominio
         {
             get { return cancha; }
             set { cancha = value; }
+        }
+
+        public EstadoAlquiler Estado
+        {
+            get { return estado; }
+            set { estado = value; }
         }
 
         public decimal Costo

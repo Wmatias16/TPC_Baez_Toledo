@@ -55,7 +55,7 @@ namespace TPC_Baez_Toledo
 							NewUsuario.Nombre = txtNombre.Text;
 							NewUsuario.Apellidos = txtApellido.Text;
 							NewUsuario.Telefono = txtTelefono.Text;
-							NewUsuario.Rol = new Rol(1);
+							NewUsuario.Rol = new Rol(2);
 
 							UsuarioNeg.Agregar(NewUsuario);
 							Session["Error"] = null;

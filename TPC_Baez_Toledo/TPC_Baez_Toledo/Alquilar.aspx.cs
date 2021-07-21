@@ -120,14 +120,19 @@ namespace TPC_Baez_Toledo
             alquilar.HoraAlquilada = horarioSeleccionado;
             alquilar.Fecha = fechaSeleccionada;
             alquilar.Costo = alquilar.Cancha.Precio * alquilar.Horas;
-
+            
 
             MercadoLibre mercadoPago = new MercadoLibre();
 
             if(listMetodoPago.SelectedValue != "Efectivo")
             {
+                alquilar.Estado = new EstadoAlquiler(3);
                 mercadoPago.Pagar(alquilar);
-            }            
+            }
+            else
+            {
+                alquilar.Estado = new EstadoAlquiler(1);
+            }
 
             alquiNegocio.Agregar(alquilar);             
 

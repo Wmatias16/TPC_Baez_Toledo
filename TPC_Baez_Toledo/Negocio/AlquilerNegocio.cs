@@ -25,7 +25,7 @@ namespace Negocio
                 datos.Comando.Parameters.AddWithValue("@Horas", NewAlquiler.Horas);
                 datos.Comando.Parameters.AddWithValue("@HoraAlquilada", NewAlquiler.HoraAlquilada);
                 datos.Comando.Parameters.AddWithValue("@Fecha", NewAlquiler.Fecha.ToString("yyyy-MM-dd"));
-                datos.Comando.Parameters.AddWithValue("@Estado", 1);
+                datos.Comando.Parameters.AddWithValue("@Estado", NewAlquiler.Estado.Id);
 
                 datos.EjectutarAccion();
 
@@ -94,7 +94,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string Query = " select a.LegajoUsuario,u.Nombre,u.Apellido,c.Nombre as Ncancha,a.Precio,a.Horas,a.HoraAlquilada,a.Fecha from Alquileres as a  Join Canchas as c on c.Id = a.IdCancha  Join Usuarios as u on u.Legajo = a.LegajoUsuario  where Fecha = '" + fecha + "' order by HoraAlquilada asc ";
+                string Query = " select a.LegajoUsuario,u.Nombre,u.Apellido,c.Nombre as Ncancha,a.Precio,a.Horas,a.HoraAlquilada,a.Fecha,e.NOMBRE as Estado from Alquileres as a  Join Canchas as c on c.Id = a.IdCancha  Join Usuarios as u on u.Legajo = a.LegajoUsuario join EstadoAlquileres as e on e.id = a.Estado  where Fecha = '" + fecha + "' order by HoraAlquilada asc ";
 
                 datos.SetearConsulta(Query);
                 datos.EjecutarLectura();
@@ -110,7 +110,7 @@ namespace Negocio
                     alqui.Horas = (Int16)datos.Leer["Horas"];
                     alqui.HoraAlquilada = (string)datos.Leer["HoraAlquilada"];
                     alqui.Fecha = (DateTime)datos.Leer["Fecha"];
-
+                    alqui.Estado = new EstadoAlquiler((string)datos.Leer["Estado"]);
 
                     listAlquiler.Add(alqui);
 

@@ -102,6 +102,7 @@
                                     <th scope="col">Horas</th>
                                     <th scope="col">Hora Alquilada</th>
                                     <th scope="col">Fecha</th>
+                                    <th scope="col">Estado</th>
                                 </tr>
                             </thead>
 
@@ -118,6 +119,7 @@
                                     <td><%=item.Horas %></td>
                                     <td><%=item.HoraAlquilada %></td>
                                      <td><%=item.Fecha.ToString("yyyy-MM-dd") %></td>
+                                    <td><%=item.Estado.Nombre%></td>
                                 </tr>
                                 <%} %>
                             </tbody>
