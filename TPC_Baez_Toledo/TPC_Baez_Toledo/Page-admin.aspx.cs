@@ -48,9 +48,7 @@ namespace TPC_Baez_Toledo
 
             lblModalTitle.Text = detalle.Cancha.Nombre;
             txtNombre.Text = detalle.Usuario.Nombre;
-            txtEmail.Text = detalle.Usuario.Email;
             txtApellido.Text = detalle.Usuario.Apellidos;
-            txtNumero.Text = detalle.Usuario.Telefono;
             txtPagar.Text = detalle.Costo.ToString();
 
 
@@ -81,7 +79,6 @@ namespace TPC_Baez_Toledo
             alquiNegocio.CambiarEstado(id, 4);
 
             AlquileresPendientes = alquiNegocio.ListarPendientes();
-            Session["Pendientes"] = AlquileresPendientes;
             Repetidor.DataSource = AlquileresPendientes;
             Repetidor.DataBind();
         }

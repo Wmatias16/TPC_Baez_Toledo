@@ -18,7 +18,7 @@
                                 </div>
                             </div>
                             <div class="align-self-center">
-                                <h5 class="mb-0">$56,150</h5>
+                                <h5 class="mb-0">$00,00</h5>
                                 <small class="text-muted">Ganancias totales</small>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             <div class="align-self-center">
-                                <h5 class="mb-0">$8,450</h5>
+                                <h5 class="mb-0">$00,00</h5>
                                 <small class="text-muted">Ganancias en el dia</small>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                             <div class="align-self-center">
-                                <h5 class="mb-0">$22,150</h5>
+                                <h5 class="mb-0">$00,00</h5>
                                 <small class="text-muted">Ganancias en el mes</small>
                             </div>
                         </div>
@@ -70,8 +70,8 @@
                                 </div>
                             </div>
                             <div class="align-self-center">
-                                <h5 class="mb-0">23</h5>
-                                <small class="text-muted">Pendienres de aprobacion</small>
+                                <h5 class="mb-0">0</h5>
+                                <small class="text-muted">Pendientes de Aprobacion de aprobacion</small>
                             </div>
                         </div>
                     </div>
@@ -126,9 +126,6 @@
                         <table class="table caption-top">
                             <thead>
                                 <tr>
-                                    <th scope="col">Legajo Usuario</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Apellido</th>
                                     <th scope="col">Nombre de la canc</th>
                                     <th scope="col">Precio</th>
                                     <th scope="col">Horas</th>
@@ -141,10 +138,7 @@
                             <tbody>
                                 <asp:Repeater ID="Repetidor" runat="server">
                                     <ItemTemplate>
-                                        <tr>
-                                            <th scope="row"><%#Eval("Usuario.Legajo")%></th>
-                                            <td><%#Eval("Usuario.Nombre")%></td>
-                                            <td><%#Eval("Usuario.Apellidos")%>$</td>
+                                        <tr>                                        
                                             <td><%#Eval("Cancha.Nombre")%></td>
                                             <td><%#Eval("Costo")%></td>
                                             <td><%#Eval("Horas")%></td>
@@ -207,8 +201,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <label for="recipient-name" class="col-form-label">Email:</label>
-                                    <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" disabled></asp:TextBox>
+                                  
 
                                     <label for="recipient-name" class="col-form-label">Nombre:</label>
                                     <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server" disabled></asp:TextBox>
@@ -216,8 +209,7 @@
                                     <label for="recipient-name" class="col-form-label">Apellido:</label>
                                     <asp:TextBox ID="txtApellido" CssClass="form-control" runat="server" disabled></asp:TextBox>
 
-                                    <label for="recipient-name" class="col-form-label">Numero:</label>
-                                    <asp:TextBox ID="txtNumero" CssClass="form-control" runat="server" disabled></asp:TextBox>
+
 
                                     <label for="recipient-name" class="col-form-label">Total a pagar:</label>
                                     <asp:TextBox ID="txtPagar" CssClass="form-control" runat="server" disabled></asp:TextBox>
