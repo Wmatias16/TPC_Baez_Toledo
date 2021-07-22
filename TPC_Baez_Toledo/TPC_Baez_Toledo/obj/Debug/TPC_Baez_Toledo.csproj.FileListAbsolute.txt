@@ -244,3 +244,6 @@ C:\Users\mtoledo\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toled
 C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\bin\Lexim.MercadoPago.dll
 C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\bin\Remotion.Linq.dll
 C:\Users\xxxx\OneDrive - frgp.utn.edu.ar\Escritorio\Repositorio Github\git\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\bin\Remotion.Linq.xml
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\bin\Lexim.MercadoPago.dll
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\bin\Remotion.Linq.dll
+C:\Users\Maty\Documents\GitHub\TPC_Baez_Toledo\TPC_Baez_Toledo\TPC_Baez_Toledo\bin\Remotion.Linq.xml

@@ -1,7 +1,5 @@
 USE master
 GO
-DROP DATABASE Predio
-GO
 Create database Predio;
 GO
 USE Predio;
@@ -73,7 +71,6 @@ GO
 INSERT INTO Roles(Nombre)
 VALUES('Cliente')
 GO
-
 INSERT INTO TipoCanchas(Nombre)
 VALUES('Futbol 5')
 GO
@@ -89,11 +86,8 @@ GO
 INSERT INTO TipoCanchas(Nombre)
 VALUES('Futsal')
 GO
-
-
-
 INSERT INTO Usuarios(Rol,Nombre,Apellido,Email,Contraseña,Telefono)
-VALUES(1,'Root','admin','root.admin@gmail.com','Admin123','1133337741')
+VALUES(1,'Root','admin','root.admin@gmail.com','Tnr+vPuuAAsix8heVWD4mioCgLQ=','1133337741')
 GO
 INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
 VALUES('sintetico',1,'Cancha sintetica al aire libre',20000,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRum7joL-Aou9dYMGpXKqKI2Q6zizYgNh_WOw&usqp=CAU')
@@ -108,4 +102,3 @@ INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
 VALUES('Cesped',2,'Cancha de futbol cesped techada',5000,'https://i2.wp.com/lacalleclub.com/wp-content/uploads/2018/11/alquiler-cancha-futbol-la-calle-proximamente-2.jpg?fit=1500%2C750')
 GO
 
-select * from EstadoAlquileres;
