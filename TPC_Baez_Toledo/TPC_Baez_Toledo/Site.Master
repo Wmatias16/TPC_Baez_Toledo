@@ -16,6 +16,13 @@
 </head>
 <body>
     <form runat="server">
+          <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/Scripts/jquery.js" />
+                <asp:ScriptReference Path="~/Scripts/bootstrap.min.js" />
+                <asp:ScriptReference Path="~/Scripts/main.js" />
+            </Scripts>
+        </asp:ScriptManager>
 
         <div class="d-flex" id="content-wrapper">
 
@@ -100,7 +107,7 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="Configuracion.aspx">Mi perfil</a>
-                                        <a class="dropdown-item" href="#">Suscripciones</a>
+                                       
                                         <div class="dropdown-divider"></div>
                                         <asp:Button ID="btnCerrar" class="dropdown-item" runat="server" OnClick="CerrarSesion" Text="Cerrar sesión" />
                                     </div>
@@ -120,6 +127,7 @@
                     <%}
                         else
                         {%>
+
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
                     <%} %>
@@ -132,14 +140,7 @@
 
 
 
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <asp:ScriptReference Path="~/Scripts/jquery.js" />
-                <asp:ScriptReference Path="~/Scripts/bootstrap.min.js" />
-                <asp:ScriptReference Path="~/Scripts/main.js" />
-
-            </Scripts>
-        </asp:ScriptManager>
+      
 
     </form>
 

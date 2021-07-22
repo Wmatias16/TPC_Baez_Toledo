@@ -28,10 +28,24 @@ namespace TPC_Baez_Toledo
                 txtApellido.Text = user.Apellidos;
                 txtTelefono.Text = user.Telefono;
             }
-
-
-
         }
+        private string encriptarSHA1(string vsValue)
+        {
+            System.Security.Cryptography.HashAlgorithm hashValue = new System.Security.Cryptography.SHA1CryptoServiceProvider();
+
+            // Convert the original string to array of Bytes
+            byte[] byteValue = System.Text.Encoding.UTF8.GetBytes(vsValue);
+
+            // Compute the Hash, returns an array of Bytes
+            byte[] byteHash = hashValue.ComputeHash(byteValue);
+
+            hashValue.Clear();
+
+            // Return a base 64 encoded string of the Hash value
+            return (Convert.ToBase64String(byteHash));
+        }
+
+
         protected void btnEmail_Click(object sender, EventArgs e)
         {
             UsuarioNegocio userNegocio = new UsuarioNegocio();
@@ -47,11 +61,11 @@ namespace TPC_Baez_Toledo
         {
             UsuarioNegocio userNegocio = new UsuarioNegocio();
 
-            if (txtContraActual.Text == user.Contraseña)
+            if (encriptarSHA1(txtContraActual.Text) == user.Contraseña)
             {
                 if (txtContraNueva.Text == txtContraConfirm.Text)
                 {
-                    user.Contraseña = txtContraNueva.Text;
+                    user.Contraseña = encriptarSHA1(txtContraNueva.Text);
                     userNegocio.Editar(user);
                 }
             }

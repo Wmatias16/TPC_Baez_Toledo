@@ -40,34 +40,7 @@ namespace Negocio
             }
 
         }
-        public List<Alquiler> Listar()
-        {
-            List<Alquiler> listAlquiler = new List<Alquiler>();
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                string Query = "SELECT * FROM ALQUILERES";
-                datos.SetearConsulta(Query);
-                datos.EjecutarLectura();
-
-                while (datos.Leer.Read())
-                {
-                    Alquiler alqui = new Alquiler();
-                    //------------------------------------------------------
-
-                }
-                return listAlquiler;
-            }
-            catch (Exception err)
-            {
-                throw err;
-            }
-            finally
-            {
-                datos.CerraConexion();
-            }
-        }
-
+       
 
         public void Eliminar(Alquiler AlquilerDelete)
         {
@@ -94,7 +67,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string Query = " select a.LegajoUsuario,u.Nombre,u.Apellido,c.Nombre as Ncancha,a.Precio,a.Horas,a.HoraAlquilada,a.Fecha,e.NOMBRE as Estado from Alquileres as a  Join Canchas as c on c.Id = a.IdCancha  Join Usuarios as u on u.Legajo = a.LegajoUsuario join EstadoAlquileres as e on e.id = a.Estado  where Fecha = '" + fecha + "' order by HoraAlquilada asc ";
+                string Query = " select a.LegajoUsuario,u.Nombre,u.Apellido,c.Nombre as Ncancha,a.Precio,a.Horas,a.HoraAlquilada,a.Fecha,e.NOMBRE as Estado from Alquileres as a  Join Canchas as c on c.Id = a.IdCancha  Join Usuarios as u on u.Legajo = a.LegajoUsuario join EstadoAlquileres as e on e.id = a.Estado  where Fecha = '" + fecha + "' and a.Estado in (1,5,3) order by HoraAlquilada asc ";
 
                 datos.SetearConsulta(Query);
                 datos.EjecutarLectura();
@@ -126,6 +99,48 @@ namespace Negocio
                 datos.CerraConexion();
             }
         }
+        public List<Alquiler> ListarPendientes()
+        {
+            List<Alquiler> listAlquiler = new List<Alquiler>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                string Query = " select a.Id as IDAlquiler, a.LegajoUsuario,u.Nombre,u.Apellido,c.Nombre as Ncancha,a.Precio,a.Horas,a.HoraAlquilada,a.Fecha,e.NOMBRE as Estado from Alquileres as a  Join Canchas as c on c.Id = a.IdCancha  Join Usuarios as u on u.Legajo = a.LegajoUsuario join EstadoAlquileres as e on e.id = a.Estado  where a.Estado = 3  order by HoraAlquilada asc ";
+
+                datos.SetearConsulta(Query);
+                datos.EjecutarLectura();
+
+                while (datos.Leer.Read())
+                {
+                    Alquiler alqui = new Alquiler();
+                    alqui.Id = (int)datos.Leer["IDAlquiler"];
+                    alqui.Usuario = new Usuario((int)datos.Leer["LegajoUsuario"]);
+                    alqui.Usuario.Nombre = (string)datos.Leer["Nombre"];
+                    alqui.Usuario.Apellidos = (string)datos.Leer["Apellido"];
+                    alqui.Cancha = new Cancha((string)datos.Leer["Ncancha"]);
+                    alqui.Costo = (decimal)datos.Leer["Precio"];
+                    alqui.Horas = (Int16)datos.Leer["Horas"];
+                    alqui.HoraAlquilada = (string)datos.Leer["HoraAlquilada"];
+                    alqui.Fecha = (DateTime)datos.Leer["Fecha"];
+                    alqui.Estado = new EstadoAlquiler((string)datos.Leer["Estado"]);
+
+                    listAlquiler.Add(alqui);
+
+                }
+                return listAlquiler;
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                datos.CerraConexion();
+            }
+        }
+
+
+
 
         public List<Alquiler> ListarPorUsuario(int Legajo)
         {
@@ -170,7 +185,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                string Query = "select HoraAlquilada as Hora from Alquileres WHERE IdCancha=@idCancha AND Fecha=@Fecha";
+                string Query = "select HoraAlquilada as Hora from Alquileres WHERE IdCancha=@idCancha AND Fecha=@Fecha AND Estado in (1,5,3)";
 
                 datos.Comando.Parameters.AddWithValue("@idCancha",idCancha);
                 datos.Comando.Parameters.AddWithValue("@Fecha", fecha);
@@ -192,6 +207,33 @@ namespace Negocio
             {
                 datos.CerraConexion();
             }
+        }
+
+
+
+        public void CambiarEstado(int idAlquiler,int idEstado)
+        {
+            try
+            {
+                AccesoDatos datos = new AccesoDatos();
+                string query = "UPDATE Alquileres SET Estado = @IdEstado WHERE Id = @idAlquiler";
+                datos.SetearConsulta(query);
+
+                datos.Comando.Parameters.AddWithValue("@IdEstado", idEstado);
+                datos.Comando.Parameters.AddWithValue("@idAlquiler", idAlquiler);
+                
+                datos.EjectutarAccion();
+
+            }
+            catch (Exception err)
+            {
+                throw err;
+            }
+            finally
+            {
+                datos.CerraConexion();
+            }
+
         }
 
     }

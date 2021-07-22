@@ -65,9 +65,8 @@ INSERT INTO EstadoAlquileres(NOMBRE) VALUES('Pendiente de Confirmación')
 GO
 INSERT INTO EstadoAlquileres(NOMBRE) VALUES('Cancelado')
 GO
-
-
-
+INSERT INTO EstadoAlquileres(NOMBRE) VALUES('Pago')
+GO
 INSERT INTO Roles(Nombre)
 VALUES('Administrador')
 GO
@@ -108,3 +107,5 @@ GO
 INSERT INTO Canchas (Nombre,IdTipoCancha,Descripcion,Precio,UrlImagen)
 VALUES('Cesped',2,'Cancha de futbol cesped techada',5000,'https://i2.wp.com/lacalleclub.com/wp-content/uploads/2018/11/alquiler-cancha-futbol-la-calle-proximamente-2.jpg?fit=1500%2C750')
 GO
+
+select * from EstadoAlquileres;

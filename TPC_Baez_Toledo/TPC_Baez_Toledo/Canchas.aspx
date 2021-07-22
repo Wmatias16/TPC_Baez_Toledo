@@ -10,7 +10,7 @@
                     <div class="card mb-3 rounded border border-light" style="width: 100%;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="<% = item.UrlImagen %>" alt="..." style="width: 100%;height:100%;object-fit:none;">
+                                <img src="<% = item.UrlImagen %>" alt="..." style="width: 100%;height:100%;object-fit:cover;">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">

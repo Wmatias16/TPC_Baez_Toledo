@@ -46,7 +46,7 @@
                         <div class="card-body d-flex">
                             <div>
                                 <div class="circle rounded-circle bg-primary align-self-center d-flex mr-3">
-                                    
+
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-piggy-bank-fill icon ion-md-people text-primary align-self-center mx-auto lead" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M7.964 1.527c-2.977 0-5.571 1.704-6.32 4.125h-.55A1 1 0 0 0 .11 6.824l.254 1.46a1.5 1.5 0 0 0 1.478 1.243h.263c.3.513.688.978 1.145 1.382l-.729 2.477a.5.5 0 0 0 .48.641h2a.5.5 0 0 0 .471-.332l.482-1.351c.635.173 1.31.267 2.011.267.707 0 1.388-.095 2.028-.272l.543 1.372a.5.5 0 0 0 .465.316h2a.5.5 0 0 0 .478-.645l-.761-2.506C13.81 9.895 14.5 8.559 14.5 7.069c0-.145-.007-.29-.02-.431.261-.11.508-.266.705-.444.315.306.815.306.815-.417 0 .223-.5.223-.461-.026a.95.95 0 0 0 .09-.255.7.7 0 0 0-.202-.645.58.58 0 0 0-.707-.098.735.735 0 0 0-.375.562c-.024.243.082.48.32.654a2.112 2.112 0 0 1-.259.153c-.534-2.664-3.284-4.595-6.442-4.595zm7.173 3.876a.565.565 0 0 1-.098.21.704.704 0 0 1-.044-.025c-.146-.09-.157-.175-.152-.223a.236.236 0 0 1 .117-.173c.049-.027.08-.021.113.012a.202.202 0 0 1 .064.199zm-8.999-.65A6.613 6.613 0 0 1 7.964 4.5c.666 0 1.303.097 1.893.273a.5.5 0 1 0 .286-.958A7.601 7.601 0 0 0 7.964 3.5c-.734 0-1.441.103-2.102.292a.5.5 0 1 0 .276.962zM5 6.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0z" />
                                     </svg>
@@ -88,9 +88,6 @@
 
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <caption style="margin-top: 25px;">
-                            <h3>Proximos turnos</h3>
-                        </caption>
                         <table class="table caption-top">
                             <thead>
                                 <tr>
@@ -108,7 +105,7 @@
 
                             <tbody>
 
-                                <%foreach (Dominio.Alquiler item in Alquileres)
+                                <%foreach (Dominio.Alquiler item in AlquileresDiaHoy)
                                     {%>
                                 <tr>
                                     <th scope="row"><%=item.Usuario.Legajo %></th>
@@ -118,7 +115,7 @@
                                     <td><%=item.Costo %></td>
                                     <td><%=item.Horas %></td>
                                     <td><%=item.HoraAlquilada %></td>
-                                     <td><%=item.Fecha.ToString("yyyy-MM-dd") %></td>
+                                    <td><%=item.Fecha.ToString("yyyy-MM-dd") %></td>
                                     <td><%=item.Estado.Nombre%></td>
                                 </tr>
                                 <%} %>
@@ -126,16 +123,114 @@
                         </table>
                     </div>
                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <table class="table caption-top">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Legajo Usuario</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Nombre de la canc</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Horas</th>
+                                    <th scope="col">Hora Alquilada</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Accion</th>
+                                </tr>
+                            </thead>
 
-                        <h1>Hola mundo</h1>
+                            <tbody>
+                                <asp:Repeater ID="Repetidor" runat="server">
+                                    <ItemTemplate>
+                                        <tr>
+                                            <th scope="row"><%#Eval("Usuario.Legajo")%></th>
+                                            <td><%#Eval("Usuario.Nombre")%></td>
+                                            <td><%#Eval("Usuario.Apellidos")%>$</td>
+                                            <td><%#Eval("Cancha.Nombre")%></td>
+                                            <td><%#Eval("Costo")%></td>
+                                            <td><%#Eval("Horas")%></td>
+                                            <td><%#Eval("HoraAlquilada")%></td>
+                                            <td><%#Eval("Estado.Nombre")%></td>
+                                            <td>
+                                                <asp:UpdatePanel runat="server">
+                                                    <ContentTemplate>
+                                                        <asp:LinkButton ID="btnConfirmarPago" OnClick="btnConfirmarPago_Click" CssClass="btn btn-outline-light" runat="server" OnClientClick="return confirm('Confirmar pago, ustede esta de acuerdo?');" CommandArgument='<%#Eval("Id")%>'> 
+                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16" style="color:green">
+                                                              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                                            </svg>
+                                                        </asp:LinkButton>
+                                                        <asp:LinkButton ID="btnDetalle" OnClick="btnSubmit_Click" CssClass="btn btn-outline-light" CommandArgument='<%#Eval("Id")%>' runat="server">
+                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16" style="color:black;">
+                                                              <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                                                              <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                                                              <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                                                            </svg>
+                                                        </asp:LinkButton>
+                                                        <asp:LinkButton ID="btnCancelarAlquiler" OnClick="btnCancelarAlquiler_Click" CommandArgument='<%#Eval("Id")%>' OnClientClick="return confirm('Esta seguro de cancelar el alquiler?');" CssClass="btn btn-outline-light" runat="server">
+                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16" style="color:red;">
+                                                              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                                              <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                            </svg>
+                                                        </asp:LinkButton>
+
+                                                    </ContentTemplate>
+
+                                                    <Triggers>
+                                                        <asp:AsyncPostBackTrigger ControlID="btnDetalle" EventName="Click" />
+
+                                                    </Triggers>
+                                                </asp:UpdatePanel>
+
+                                            </td>
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
+                            </tbody>
+                        </table>
+
                     </div>
-
                 </div>
+            </div>
 
+            <!-- Bootstrap Modal Dialog -->
+            <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            <div class="modal-content">
+                                <div class="modal-header">                                    
+                                    <h3 class="modal-title">
+                                        <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label>
+                                    </h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <label for="recipient-name" class="col-form-label">Email:</label>
+                                    <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" disabled></asp:TextBox>
 
+                                    <label for="recipient-name" class="col-form-label">Nombre:</label>
+                                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server" disabled></asp:TextBox>
 
+                                    <label for="recipient-name" class="col-form-label">Apellido:</label>
+                                    <asp:TextBox ID="txtApellido" CssClass="form-control" runat="server" disabled></asp:TextBox>
 
+                                    <label for="recipient-name" class="col-form-label">Numero:</label>
+                                    <asp:TextBox ID="txtNumero" CssClass="form-control" runat="server" disabled></asp:TextBox>
 
+                                    <label for="recipient-name" class="col-form-label">Total a pagar:</label>
+                                    <asp:TextBox ID="txtPagar" CssClass="form-control" runat="server" disabled></asp:TextBox>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+                                </div>
+
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
             </div>
     </div>
 
